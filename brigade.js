@@ -31,6 +31,8 @@ events.on("push", async () => {
     "gcloud auth configure-docker",
     "echo $(pwd)",
     "ls -lart",
+    "helm ls",
+    "brig -v",
     "docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
     //"docker cp [OPTIONS] CONTAINER:dhirwanashish/asd-prac /dir1|-",
     //"gcloud init --console-only -y",
