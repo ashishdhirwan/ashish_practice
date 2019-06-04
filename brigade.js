@@ -27,7 +27,7 @@ events.on("push", async () => {
     "echo entered",
     "gcloud info",
     "echo now initializing",
-    "docker run -ti -v /home/ashish/Desktop/finall-docker/ :/dir1 dhirwanashish/gogdoc"// /bin/bash",
+    "docker run -ti -v /home/ashish/Desktop/finall-docker/ :/dir1 dhirwanashish/gogdoc",// /bin/bash",
     //"docker cp [OPTIONS] CONTAINER:dhirwanashish/asd-prac /dir1|-",
     //"gcloud init --console-only -y",
     "echo $(pwd)",
