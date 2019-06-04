@@ -27,7 +27,7 @@ events.on("push", async () => {
     "echo entered",
     "gcloud info",
     "echo now initializing",
-    "ls -lart"
+    "ls -lart",
     "dockerd-entrypoint.sh &",
     "gcloud auth configure-docker",
     "echo $(pwd)",
