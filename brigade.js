@@ -16,7 +16,7 @@ const { events, Job, Group } = require('brigadier')
 
 events.on("push", async () => {
 
-  let j = new Job("hello-world","dhirwanashish/gogvoldoc:v1");
+  let j = new Job("hello-world","dhirwanashish/asd-prac:v1");
   j.privileged = true;
   
   j.env = {
@@ -32,8 +32,8 @@ events.on("push", async () => {
     "echo $(pwd)",
     "ls -lart",
     //"cd mydir/app/",
-    "gcloud config set project ashishdhirwan",
-    "gcloud auth activate-service-account --key-file=/mydir/vol/ashishdhirwan-5654e4933c46.json --project=ashishdhirwan",
+    "gcloud config set project My-Project 70505",
+    "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=My-Project 70505",
    // "gcloud auth application-default login",
     "cd /src",
     "gcloud auth configure-docker",
@@ -44,9 +44,9 @@ events.on("push", async () => {
     "docker version",
     //"cd /src",
     "docker login -u dhirwanashish -p dhirwan10",
-    "docker build -t dhirwanashish/practice:latest .",
-    "docker tag dhirwanashish/practice:latest gcr.io/ashishdhirwan/dhirwanashish/practice:v1",
-    "docker push gcr.io/ashishdhirwan/dhirwanashish/practice:v1"
+    "docker build -t dhirwanashish/ashish_practice_try:latest .",
+    "docker tag dhirwanashish/ashish_practice_try:latest gcr.io/My-Project 70505/dhirwanashish/ashish_practice_try:v1",
+    "docker push gcr.io/My-Project 70505/dhirwanashish/ashish_practice_try:v1"
   ]
    j.run();
 });
