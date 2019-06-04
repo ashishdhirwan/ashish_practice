@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service-loadbalancer
+  namespace: asd
+spec:
+  type: LoadBalancer
+  #it is used whe we have diffferent nodes and pods
+  #and we want to use that node only where pod is present 
+  #which we want to use hence it eliminate hopping of node to node
+  
+  externalTrafficPolicy: Local
+  
+  #loadBalancerIp generaly generates by networkloadbalancer
+  #but still some cloud give previlalge to use specific ip
+  #loadBalancerIP:
+  selector:
+    app: first-task
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9090

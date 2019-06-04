@@ -1,0 +1,30 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: my-task-deployment
+  namespace: try-namespace
+spec:
+  replicas: 2
+  minReadySeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+  selector:
+    matchLabels:
+      app: first-task
+  template:
+    metadata:
+      labels:
+        app: first-task
+    spec:
+      containers:
+      - name: my-task-container
+        image: dhirwanashish/my-task-image:v1
+        #imagePullPolicy: IfNotPresent
+        #DO-NOT USE COMMAND IF U ARE TAKING ANY IMAGE WITH ENTRYPOINT 
+        #AS IT WILL EXECUTE COMMAND RATHER THAN CMD IN DOCKERFILE WHICH WILL CREATE ISSUE
+        #command: [ "echo", "SUCCESS" ]
+        #command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+        ports:
+        - containerPort: 3000

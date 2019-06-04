@@ -1,0 +1,7 @@
+#helm upgrade --install ashish-practice brigade/brigade-project -f projectval.yaml
+project: "ashishdhirwan/ashish_practice"
+repository: "github.com/ashishdhirwan/ashish_practice"
+cloneURL: "https://github.com/ashishdhirwan/ashish_practice.git"
+github:
+  token: "671c24d42bbc17a673476a66ba34be858a3ccbe8"
+sharedSecret: "mysecretkey"

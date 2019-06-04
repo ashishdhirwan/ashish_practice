@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service-nodeport
+  namespace: asd
+spec:
+  selector:
+    app: first-task
+  
+ 
+  type: NodePort
+  #sessionAffinity: yes
+  ports:
+  - protocol: TCP
+    name: http
+    port: 80
+    #it should be same as the port you exposed in dokcerfile then only mapping can take place
+    targetPort: 3000
+    #nodeport port which is given to virtual machine 
+    #so that it can hit services
+    nodePort: 30005

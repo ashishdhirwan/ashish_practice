@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  #namespace: asd
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  #- host: http://192.168.99.100
+  - http:
+      paths:
+      - path: /test/
+        backend:
+          serviceName: my-service-nodeport
+          servicePort: 3000

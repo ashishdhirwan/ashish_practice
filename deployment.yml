@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: my-task-deployment
+  namespace: asd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: first-task
+  template:
+    metadata:
+      labels:
+        app: first-task
+    spec:
+      containers:
+      - name: my-task-container
+        image: dhirwanashish/my-task-image
+        #imagePullPolicy: IfNotPresent
