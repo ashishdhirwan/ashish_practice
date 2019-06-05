@@ -16,7 +16,7 @@ const { events, Job, Group } = require('brigadier')
 
 events.on("push", async () => {
 
-  let j = new Job("hello-world","dhirwanashish/gogdoc:v1");
+  let j = new Job("hello-world","dhirwanashish/asd-prac:v1");
   j.privileged = true;
   
   j.env = {
