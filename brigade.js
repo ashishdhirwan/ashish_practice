@@ -49,23 +49,25 @@ events.on("push", async () => {
     //"docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
     //"docker cp [OPTIONS] CONTAINER:dhirwanashish/asd-prac /dir1|-",
     //"gcloud init --console-only -y",
+    "echo helm running"
     "echo $(pwd)",
+    "echo now auth"
     "ls -lart",
     //"cd mydir/app/",
     "gcloud config set project my-project-70505",
-    "gcloud auth activate-service-account --key-file=/home/ashish/Desktop/finall-docker/my-project-70505-c03a97524e24.json --project=my-project-70505",
-    //"gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
-    "cd /src",
+    //"gcloud auth activate-service-account --key-file=/home/ashish/Desktop/finall-docker/my-project-70505-c03a97524e24.json --project=my-project-70505",
+    "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
+    //"cd /src",
     //"gcloud auth configure-docker",
     "echo done-auth",
     "echo Hello World!",
     //"dockerd-entrypoint.sh &",
-    "sleep 30",
-    "docker version",
+    //"sleep 30",
+    //"docker version",
     //"docker login -u user -p pass",
-    "docker build -t dhirwanashish/ashish_practice_try111:latest .",
-    "docker tag dhirwanashish/ashish_practice_try111:latest gcr.io/my-project-70505/dhirwanashish/ashish_practice_try111:v1",
-    "docker push gcr.io/my-project-70505/dhirwanashish/ashish_practice_try111:v1"
+    //"docker build -t dhirwanashish/ashish_practice_try111:latest .",
+    //"docker tag dhirwanashish/ashish_practice_try111:latest gcr.io/my-project-70505/dhirwanashish/ashish_practice_try111:v1",
+   // "docker push gcr.io/my-project-70505/dhirwanashish/ashish_practice_try111:v1"
   ]
    j.run();
 });
