@@ -51,7 +51,7 @@ events.on("push", async () => {
     //"gcloud init --console-only -y",
     "echo helm running"
     "echo $(pwd)",
-    "echo now auth"
+    "echo now auth",
     "ls -lart",
     //"cd mydir/app/",
     "gcloud config set project my-project-70505",
