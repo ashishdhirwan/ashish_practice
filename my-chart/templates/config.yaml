@@ -27,5 +27,5 @@ data:
 #    - {{ . | title | quote }}
 #    {{- end }}
 ############# TEST VOL ###########
-- persistentVolumeClaim:
-    claimName: {{ .Values.claimName }}
+#- persistentVolumeClaim:
+#    claimName: {{ .Values.claimName }}
