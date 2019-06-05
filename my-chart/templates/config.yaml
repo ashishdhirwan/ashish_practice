@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "my-chart.fullname" . }}-configfile
+data:
+- myvalue: "Hello World"
+################ IF ELSE ################  
+  drink: {{ .Values.favorite.drink | quote }}
+  food: {{ .Values.favorite.food | upper | quote }}
+  #drink: {{ .Values.favorite.drink | default (printf "%s-tea" (include "fullname" .)) }}
+  {{if eq .Values.favorite.drink "coffee"}}
+  mug: true
+  {{end}}
+#################  WITH  ##############
+  {{- with .Values.favorite }}
+  drink: {{ .drink | default "tea" | quote }}
+  food: {{ .food | upper | quote }}
+  {{- end }}
+  #volume: {{ .Values.persistentVolumeClaim }}
+################## range ##############
+  {{- with .Values.favorite }}
+  drink: {{ .drink | default "tea" | quote }}
+  food: {{ .food | upper | quote }}
+  {{- end }}
+  toppings: |-
+    {{- range .Values.pizzaToppings }}
+    - {{ . | title | quote }}
+    {{- end }}
+############# TEST VOL ###########
+- persistentVolumeClaim:
+    claimName: {{ .Values.claimName }}
