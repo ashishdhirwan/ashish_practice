@@ -34,7 +34,7 @@ spec:
     volumes:
     - name: conf-vol-hel
       configMap:
-      - name: {{ .Release.Name }}-myconfile 
+      - name: myconfile 
         key: persistentVolumeClaim
       #  persistentVolumeClaim:
       # claimName: mypvc
