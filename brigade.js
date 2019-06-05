@@ -33,6 +33,7 @@ events.on("push", async () => {
     "echo $(pwd)",
     "ls -lart",
     //"kubectl get pods",
+    "apk add -U bash curl git sudo",
     "curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.sh | bash",
     "gofish init",
     "gofish install gofish",
