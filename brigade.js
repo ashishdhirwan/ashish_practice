@@ -43,9 +43,10 @@ events.on("push", async () => {
     //"helm init",
     "gofish install helm",
     "helm init",
-    "helm",
-    "brig -v",
-    "docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
+    "helm"
+    "helm ls",
+    //"brig -v",
+    //"docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
     //"docker cp [OPTIONS] CONTAINER:dhirwanashish/asd-prac /dir1|-",
     //"gcloud init --console-only -y",
     "echo $(pwd)",
