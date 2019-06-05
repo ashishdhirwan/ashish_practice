@@ -16,7 +16,7 @@ const { events, Job, Group } = require('brigadier')
 
 events.on("push", async () => {
 
-  let j = new Job("hello-world","dhirwanashish/asd-prac:v1");
+  let j = new Job("hello-world","dhirwanashish/asd-devops:v1");
   j.privileged = true;
   
   j.env = {
@@ -32,18 +32,13 @@ events.on("push", async () => {
     "gcloud auth configure-docker",
     "echo $(pwd)",
     "ls -lart",
-    //"kubectl get pods",
-    "apk add -U bash curl git sudo",
-    "curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.sh | bash",
-    "gofish init",
-    "gofish install gofish",
-    //"curl -LO https://git.io/get_helm.sh",
-    //"chmod 700 get_helm.sh",
-    //"./get_helm.sh",
-    //"helm init",
-    "gofish install helm",
+    //"apk add -U bash curl git sudo",
+    //"curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.sh | bash",
+    //"gofish init",
+    //"gofish install gofish",
+    //"gofish install helm",
     "helm init",
-    "helm",
+    "helm version",
     "helm ls",
     //"brig -v",
     //"docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
