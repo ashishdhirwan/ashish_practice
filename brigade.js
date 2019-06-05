@@ -43,7 +43,7 @@ events.on("push", async () => {
     //"helm init",
     "gofish install helm",
     "helm init",
-    "helm"
+    "helm",
     "helm ls",
     //"brig -v",
     //"docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
