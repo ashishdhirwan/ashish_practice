@@ -49,7 +49,7 @@ events.on("push", async () => {
     //"docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
     //"docker cp [OPTIONS] CONTAINER:dhirwanashish/asd-prac /dir1|-",
     //"gcloud init --console-only -y",
-    "echo helm running"
+    "echo helm running",
     "echo $(pwd)",
     "echo now auth",
     "ls -lart",
