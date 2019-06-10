@@ -16,6 +16,7 @@ events.on("push", async () => {
     "echo now initializing",
     //"git",
     "git version",
+    "git init",
     "echo gitiiiiiiiiiiiiiiiiiiiiiing",   
     "git tag",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
