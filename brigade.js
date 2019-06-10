@@ -1,17 +1,3 @@
-//const { events, Job, Group } = require('brigadier')
-/*
-
-events.on("push", () => {
-  var hello = new Job("hello", "alpine:3.4")
-  hello.tasks = [
-    "echo Hello",
-    "echo World"
-  ]
-  hello.run()
-})
-*/
-
-
 const { events, Job, Group } = require('brigadier')
 
 events.on("push", async () => {
@@ -26,44 +12,33 @@ events.on("push", async () => {
     "sleep 10",
     "echo entered",
     "gcloud info",
+    "echo Hello World!",
     "echo now initializing",
+    "git",
+    "git version",
+    "echo gitiiiiiiiiiiiiiiiiiiiiiing",   
+    "GIT_COMMIT='git rev-parse HEAD'",
+    "echo hello world 2",
+    "NEEDS_TAG='git describe --contains $GIT_COMMIT'",
+    "echo $NEEDS_TAG",
     "ls -lart",
     "dockerd-entrypoint.sh &",
     "gcloud auth configure-docker",
     "echo $(pwd)",
     "ls -lart",
-    //"apk add -U bash curl git sudo",
-    //"curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.sh | bash",
-    //"gofish init",
-    //"gofish install gofish",
-    //"gofish install helm",
-    "helm init",
+    //"helm init",
     "helm version",
     "helm ls",
-    //"brig -v",
-    //"docker run -d  dhirwanashish/gogdoc:v1 -v /home/ashish/Desktop/finall-docker/ :/dir1",// /bin/bash",
-    //"docker cp [OPTIONS] CONTAINER:dhirwanashish/asd-prac /dir1|-",
-    //"gcloud init --console-only -y",
     "echo helm running",
     "echo $(pwd)",
     "echo now auth",
     "ls -lart",
-    //"cd mydir/app/",
-    "gcloud config set project my-project-70505",
-    //"gcloud auth activate-service-account --key-file=/home/ashish/Desktop/finall-docker/my-project-70505-c03a97524e24.json --project=my-project-70505",
-    "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
+    //"gcloud config set project my-project-70505",
+    //"gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
     "cd /src",
-    "helm install my-chart/",
-    //"gcloud auth configure-docker",
+    //"helm install my-chart/",
     "echo done-auth",
-    "echo Hello World!",
-    //"dockerd-entrypoint.sh &",
-    //"sleep 30",
-    //"docker version",
-    //"docker login -u user -p pass",
-    //"docker build -t dhirwanashish/ashish_practice_try111:latest .",
-    //"docker tag dhirwanashish/ashish_practice_try111:latest gcr.io/my-project-70505/dhirwanashish/ashish_practice_try111:v1",
-   // "docker push gcr.io/my-project-70505/dhirwanashish/ashish_practice_try111:v1"
+
   ]
    j.run();
 });
