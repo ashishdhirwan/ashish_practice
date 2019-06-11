@@ -24,4 +24,4 @@ pizzaToppings:
 #persistentVolumeClaim:
 #  claimName: mypvc
 
-claimName: mypvc
+#claimName: mypvc

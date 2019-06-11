@@ -36,5 +36,5 @@ spec:
 #      configMap:
 #      - name: myconfile 
 #        key: persistentVolumeClaim
-      #  persistentVolumeClaim:
-      # claimName: mypvc
+#      #  persistentVolumeClaim:
+#      # claimName: mypvc
