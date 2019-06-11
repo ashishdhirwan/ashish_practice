@@ -32,6 +32,8 @@ events.on("push", async () => {
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
     "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
+    'git config --global user.email "dhirwanashish@gmail.com"',
+    'git config --global user.name "ashishdhirwan"',
     "git pull origin master --allow-unrelated-histories",
     "echo pulllllllllllllllllllllllllll",
     "git push --tags origin master",
