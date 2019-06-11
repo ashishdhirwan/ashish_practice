@@ -38,7 +38,7 @@ events.on("push", async () => {
     "echo doneeeeeeeeeeeeeeeeeeeeeeeeeee",
     "docker build -t dhirwanashish/versioning:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/tag_version:latest gcr.io/my-project-70505/dhirwanashish/versioning:$latestTag",
+    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$latestTag",
     "echo done-tagging",
     "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$latestTag",
     "ls -lart",
