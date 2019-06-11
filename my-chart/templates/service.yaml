@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ .Release.Name }}-serv-helm-custom-release  #this will add release name & chart name 
+  name: {{ .Release.Name }}-serv-helm-tag  #this will add release name & chart name 
                                                                       #to pod and services for better understanding
 spec:
   selector:
@@ -11,8 +11,8 @@ spec:
   ports:
     - name: helm-apache-port
       port: 80        #port and targetport is same here as port is listening and
-      targetPort: 80  #it is sending trafic to target port 
+      targetPort: 3000  #it is sending trafic to target port 
                       #(look at my-service-nodeport it has 3000 also running inside so we need to send traffic through there hence we used different ports in all 3)
-      nodePort: 32321  #since it does not have anything to display u can not see on web
+      nodePort: 32311  #since it does not have anything to display u can not see on web
                         #but u can curl it but using localhost:80 as nodeport is for 
                         #outer but it is working

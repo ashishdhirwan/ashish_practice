@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: {{ template "my-chart.fullname" . }}-deploy-helm-custom-release
+  name: {{ template "my-chart.fullname" . }}-deploy-helm-tag
 spec:
   replicas: {{ .Values.replicaCount }}
 #  minReadySeconds: 30
@@ -27,7 +27,7 @@ spec:
       - name: deploy-helm
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: 80
+        - containerPort: 3000
 #        volumeMounts:
 #        - mountPath: "/usr/data"
 #          name: conf-vol-helm
