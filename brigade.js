@@ -25,11 +25,12 @@ events.on("push", async () => {
     "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
     "echo done-auth",
     "cd /src",
+    "git remote add origin https://github.com/ashishdhirwan/practice.git"
     "wget -q -O gitversion https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.1/gitversion_linux_amd64",
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
     "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
-    "git push --tags origin",
+    "git push origin --tags",
     //"git push --tags >/dev/null 2>&1",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     "echo $latestTag",
