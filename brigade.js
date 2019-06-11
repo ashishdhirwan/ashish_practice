@@ -24,7 +24,6 @@ events.on("push", async () => {
     "cd /src",
     'echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials',
     "git config credential.helper 'store --file .git-credentials'",
-    "git remote add origin https://github.com/ashishdhirwan/practice.git",
     "wget -q -O gitversion https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.1/gitversion_linux_amd64",
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
@@ -35,6 +34,7 @@ events.on("push", async () => {
     //"git pull origin master --allow-unrelated-histories",
     //"echo pulllllllllllllllllllllllllll",
     "git branch",
+    "git remote add origin https://github.com/ashishdhirwan/practice.git",
     "git push --tags origin",
     //"latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     //"echo $latestTag",
@@ -62,7 +62,7 @@ events.on("push", async () => {
     "cd ..",
     "helm ls",
     //"helm install my-chart/",
-    //"helm upgrade joyous-goat my-chart/",
+    "helm upgrade joyous-goat my-chart/",
     "echo done-work",
  
   ]
