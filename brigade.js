@@ -2,9 +2,6 @@ const { events, Job, Group } = require('brigadier')
 
 events.on("push", async () => {
 
-
-
-
   let j = new Job("hello-world","dhirwanashish/asd-devops:v1");
   j.privileged = true;
   
@@ -32,11 +29,12 @@ events.on("push", async () => {
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
     "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
-    'git config --global user.email "dhirwanashish@gmail.com"',
-    'git config --global user.name "ashishdhirwan"',
-    "git pull origin master --allow-unrelated-histories",
-    "echo pulllllllllllllllllllllllllll",
-    "git push --tags origin master",
+    //PULL MASTER GIVES MERGING CONCEPT
+    //'git config --global user.email "dhirwanashish@gmail.com"',
+    //'git config --global user.name "ashishdhirwan"',
+    //"git pull origin master --allow-unrelated-histories",
+    //"echo pulllllllllllllllllllllllllll",
+    "git push --tags",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     "echo $latestTag",
     "echo doneeeeeeeeeeeeeeeeeeeeeeeeeee",
