@@ -32,6 +32,7 @@ events.on("push", async () => {
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
     "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
+    "git pull origin master",
     "git push --tags origin master",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     "echo $latestTag",
