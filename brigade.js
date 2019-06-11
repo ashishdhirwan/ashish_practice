@@ -27,7 +27,7 @@ events.on("push", async () => {
     "git fetch --tags -q",
     "wget -q -O gitversion https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.1/gitversion_linux_amd64",
     "chmod u+x ./gitversion",
-    "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
+    "./gitversion  bump auto && ./gitversion show > pipeline_app_versions.txt",
     //PULL MASTER GIVES MERGING CONCEPT
     //'git config --global user.email "dhirwanashish@gmail.com"',
     //'git config --global user.name "ashishdhirwan"',
