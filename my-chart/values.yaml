@@ -20,7 +20,7 @@ pizzaToppings:
   - mushrooms
   - cheese
   - peppers
-  - onions
+#  - onions
 #persistentVolumeClaim:
 #  claimName: mypvc
 
