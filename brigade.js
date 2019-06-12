@@ -65,8 +65,7 @@ events.on("push", async () => {
     "helm install my-chart/",
     //"helm upgrade joyous-goat my-chart/",
     "echo done-work",
- 
-  ]
+]
   
    j.run();
 });
