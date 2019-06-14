@@ -1,17 +1,13 @@
-const { events, Job, Group } = require("brigadier")
+const { events, Job } = require("brigadier")
 
-events.on("exec",(e,p) => {
-  var dest = "/mnt/brigade/share/hello.txt"
-  var one = new Job("one", "alpine:3.4", ["echo hello > " + dest])
-  var two = new Job("two", "alpine:3.4", ["echo world >> " + dest])
-  var three = new Job("three", "alpine:3.4", ["cat " + dest])
+events.on("exec", (e) => {
+  var job = new Job("cacher", "alpine:3.4")
+  job.cache.enabled = true
 
-  one.storage.enabled = true
-  two.storage.enabled = true
-  three.storage.enabled = true
-  
-  one.run()
-  two.run()
-  three.run()
-  //Group.runEach([one, two, three])
+  job.tasks = [
+    "echo " + e.buildID + " >> /mnt/brigade/cache/jobs.txt",
+    "cat /mnt/brigade/cache/jobs.txt"
+  ]
+
+  job.run()
 })
