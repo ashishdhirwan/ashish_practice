@@ -9,6 +9,9 @@ events.on("push",() => {
   one.storage.enabled = true
   two.storage.enabled = true
   three.storage.enabled = true
-
-  Group.runEach([one, two, three])
+  
+  one.run()
+  two.run()
+  three.run()
+  //Group.runEach([one, two, three])
 })
