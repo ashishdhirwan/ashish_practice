@@ -1,6 +1,6 @@
 const { events, Job, Group } = require("brigadier")
 
-events.on("push",() => {
+events.on("exec",() => {
   var dest = "/mnt/brigade/share/hello.txt"
   var one = new Job("one", "alpine:3.4", ["echo hello > " + dest])
   var two = new Job("two", "alpine:3.4", ["echo world >> " + dest])
