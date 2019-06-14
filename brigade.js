@@ -1,6 +1,6 @@
 const { events, Job } = require("brigadier")
 
-events.on("exec", (e) => {
+events.on("push", (e) => {
   var job = new Job("cacher", "alpine:3.4")
   job.cache.enabled = true
 
