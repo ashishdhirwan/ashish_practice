@@ -6,5 +6,5 @@ github:
   token: "671c24d42bbc17a673476a66ba34be858a3ccbe8"
 sharedSecret: "mysecretkey"
 kubernetes:
-  buildStorageClass: storageclass.storage.k8s.io/nfs-client
-  cacheStorageClass: storageclass.storage.k8s.io/nfs-client
+  buildStorageClass: nfs-client
+  cacheStorageClass: nfs-client
