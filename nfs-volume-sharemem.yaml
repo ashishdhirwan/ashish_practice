@@ -1,12 +1,17 @@
-apiVersion: v1
-kind: PersistentVolume
+kind: StorageClass
+
+apiVersion: storage.k8s.io/v1
+
 metadata:
-  name: nfs
-spec:
-  capacity:
-    storage: 1Mi
-  accessModes:
-  - ReadWriteMany
-  nfs:
-    server: freenas.home
-    path: "/mnt/brigade/share"
+
+  name: gold
+
+provisioner: kubernetes.io/gce-pd   
+# it may not work as it gives pending status in pvc
+# gce is not a provisioner of minikube
+# hence use default storage class first (standard)
+
+parameters:
+  type: pd-ssd
+
+volumeBindingMode: Immediate
