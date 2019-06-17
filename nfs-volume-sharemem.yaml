@@ -1,16 +1,12 @@
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
+kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
-  name: nfs-class
-provisioner: storage.k8s.io/nfs-client # or choose another name, must match deployment's env PROVISIONER_NAME'
-parameters:
-  accessModes: ReadWriteMany
-  archiveOnDelete: "false"
-
-
-#helm install --name postgresql --set persistence.storageClass=nfs-client stable/postgresql
-#watch kubectl get po -l app=postgresql
-
-#storageclass.storage.k8s.io/nfs-client
-#cluster.local/nfs-cp-nfs-client-provisioner
+  name: my-pvc
+spec:
+  storageClassName: nfs-client
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 200Mi
 
