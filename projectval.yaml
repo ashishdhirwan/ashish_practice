@@ -5,3 +5,6 @@ cloneURL: "https://github.com/ashishdhirwan/ashish_practice.git"
 github:
   token: "671c24d42bbc17a673476a66ba34be858a3ccbe8"
 sharedSecret: "mysecretkey"
+kubernetes:
+  buildStorageClass: local-nfs
+  cacheStorageClass: local-nfs
