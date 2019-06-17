@@ -2,7 +2,9 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: gold
-provisioner: kubernetes.io/cinder
+provisioner: kubernetes.io/gce-pd
 parameters:
+  type: pd-standard
+  replication-type: none
   accessModes: ReadWriteMany
-  availability: nova
+
