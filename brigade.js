@@ -6,6 +6,6 @@ events.on("push", () => {
  // var goodbye = new Job("goodbye", "alpine:3.4", ["cat " + dest])
   hello.storage.enabled = true
  // goodbye.storage.enabled = true
-  run.hello()
+  hello.run()
   //Group.runEach([hello, goodbye])
 })
