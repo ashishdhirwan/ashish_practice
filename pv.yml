@@ -19,11 +19,12 @@ kind: PersistentVolume
 metadata:
   name: nfs
 spec:
+  storageClassName: nfs-client
   capacity:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
   nfs:
-    server: <ClusterIP>
-    path: "/"
+    server: 10.0.0.2
+    path: "/volume2"
 
