@@ -4,4 +4,5 @@ metadata:
   name: gold
 provisioner: kubernetes.io/cinder
 parameters:
+  accessModes: ReadWriteMany
   availability: nova
