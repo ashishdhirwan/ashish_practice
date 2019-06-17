@@ -12,3 +12,18 @@ spec:
     - ReadWriteMany
   hostPath:
     path: "/mnt/brigade/share"
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: <ClusterIP>
+    path: "/"
+
