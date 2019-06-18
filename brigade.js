@@ -20,8 +20,8 @@ events.on("push", async (e, project) => {
     "git push --tags origin",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     "echo $latestTag",
-    "'echo $latestTag >' + dest",
-    "'cat keys.txt' + dest",
+    'echo $latestTag >' + dest,
+    "cat " + dest,
   ]
 
   let dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
@@ -40,9 +40,9 @@ events.on("push", async (e, project) => {
     "dockerd-entrypoint.sh &",
     "docker build -t dhirwanashish/versioning:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat keys.txt`)" + dest,
+    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat ')" + dest,
     "echo done-tagging",
-    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat keys.txt`)" + dest,
+    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat `)" + dest,
    ]
 
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
