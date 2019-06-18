@@ -21,6 +21,7 @@ events.on("push", async () => {
     "echo $latestTag >" + dest
   ]
 
+
 /*
   let gcloudauth = new Job("docker","dhirwanashish/asd-devops:v1");
   gcloudauth.tasks = [
