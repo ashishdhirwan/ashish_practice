@@ -20,8 +20,8 @@ events.on("push", async (e, project) => {
     "git push --tags origin",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     "echo $latestTag",
-    "echo $latestTag >" + dest
-    "cat keys.txt" + dest
+    "echo $latestTag >" + dest,
+    "cat keys.txt" + dest,
   ]
 
   let dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
@@ -66,7 +66,7 @@ events.on("push", async (e, project) => {
 if(e.type == 'push'){
   if(jsonPayload.ref == "refs/heads/master") {
     await gittask.run();
-    await dockerbuild.run();
+   // await dockerbuild.run();
     await helmtask.run();
   }
 }
