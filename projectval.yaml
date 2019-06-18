@@ -35,4 +35,3 @@ kubernetes:
   buildStorageClass: local-nfs
   cacheStorageClass: local-nfs
 
-
