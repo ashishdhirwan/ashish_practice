@@ -31,7 +31,7 @@ events.on("push", async (e, project) => {
     DOCKER_DRIVER: "overlay"
   }
   dockerbuild.tasks = [
-    "cat " + dest,
+    "var='cat '" + dest,
     "sleep 10",
     "gcloud auth configure-docker",
     "gcloud config set project my-project-70505",
