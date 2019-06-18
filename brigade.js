@@ -2,9 +2,10 @@ const { events, Job, Group } = require('brigadier')
 
 events.on("push", async () => {
   var dest = "/mnt/brigade/share/keys.txt";
-  let gittask = new Job("docker","dhirwanashish/asd-devops:v1");
+  let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
   gittask.tasks = [
+    "cd /src",
     'echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials',
     "git config credential.helper 'store --file .git-credentials'",
     //"git remote add origin https://github.com/ashishdhirwan/practice.git", //using this tag is not showing in github
@@ -53,7 +54,7 @@ events.on("push", async () => {
     "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat $latestTag`)",
    ]
 
-  let helmtask = new Job("docker","dhirwanashish/asd-devops:v1");
+  let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
     "ls -lart",
@@ -71,7 +72,7 @@ events.on("push", async () => {
     "echo done-work",
 ]
 
-  Group.runEach([gittask, dockerbuild,helmtask])
+  Group.runEach([gittask, dockerbuild, helmtask])
 
 })
 
