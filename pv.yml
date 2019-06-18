@@ -11,20 +11,7 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/mnt/brigade/share"
+    path: "/mnt/vol
 
 
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: nfs
-spec:
-  storageClassName: nfs-client
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: 10.0.0.2
-    path: "/volume2"
 
