@@ -52,12 +52,15 @@ events.on("push", async (e, project) => {
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
+    "cd /mnt/brigade/share",
+    "var=$(cat keys.txt)",
+    "echo $var",
     "ls -lart",
     "cd /src",
     "cd my-chart/",
     //"helm upgrade giggly-rabbit --set=image.tag=$latestTag my-chart/",    //another way of tagging and upgrading directly
-    'sed -i "s/tag.*/tag: "$(`cat $latestTag`)"/" values.yaml',
-    'sed -i "s/version.*/version: "$(`cat $latestTag`)"/" Chart.yaml',
+    'sed -i "s/tag.*/tag: "$var"/" values.yaml',
+    'sed -i "s/version.*/version: "$var"/" Chart.yaml',
     //`sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
     "cat values.yaml",
     "cd ..",
@@ -71,7 +74,7 @@ if(e.type == 'push'){
   if(jsonPayload.ref == "refs/heads/master") {
     await gittask.run();
     await dockerbuild.run();
-   // await helmtask.run();
+    await helmtask.run();
   }
 }
 // Group.runEach([gittask, dockerbuild, helmtask])
