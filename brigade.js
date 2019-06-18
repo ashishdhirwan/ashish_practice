@@ -66,8 +66,8 @@ events.on("push", async (e, project) => {
 if(e.type == 'push'){
   if(jsonPayload.ref == "refs/heads/master") {
     await gittask.run();
-   // await dockerbuild.run();
-    await helmtask.run();
+    await dockerbuild.run();
+   // await helmtask.run();
   }
 }
 // Group.runEach([gittask, dockerbuild, helmtask])
