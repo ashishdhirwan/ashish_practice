@@ -32,6 +32,7 @@ events.on("push", async (e, project) => {
   }
   dockerbuild.tasks = [
     "var='cat '" + dest,
+    "echo $var",
     "sleep 10",
     "gcloud auth configure-docker",
     "gcloud config set project my-project-70505",
@@ -43,7 +44,7 @@ events.on("push", async (e, project) => {
     "echo done-build",
     "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$var",
     "echo done-tagging",
-    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat `)" + dest,
+    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$var,
    ]
 
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
