@@ -32,15 +32,16 @@ events.on("push", async (e, project) => {
   }
   dockerbuild.tasks = [
     "cd /mnt/brigade/share",
-    "var= cat keys.txt",
+    "var=cat keys.txt",
     "echo $var",
     "sleep 10",
+    "cd /src",
     "dockerd-entrypoint.sh &",
     "gcloud auth configure-docker",
     "gcloud config set project my-project-70505",
     "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
     "echo done-auth",
-    "cd /src",
+    "docker login -u dhirwanashish -p dhirwan10",
     "docker build -t dhirwanashish/gittag:latest .",
     "echo done-build",
     "docker tag dhirwanashish/gittag:latest gcr.io/my-project-70505/dhirwanashish/gittag:$var",
