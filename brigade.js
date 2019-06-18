@@ -32,7 +32,7 @@ events.on("push", async (e, project) => {
   }
   dockerbuild.tasks = [
     "cd /mnt/brigade/share",
-    "var < keys.txt",
+    "var= cat keys.txt",
     "echo $var",
     "sleep 10",
     "gcloud auth configure-docker",
