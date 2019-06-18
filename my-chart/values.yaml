@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: gcr.io/my-project-70505/dhirwanashish/versioning
+  repository: gcr.io/my-project-70505/dhirwanashish/gittag
   tag: latest
   pullPolicy: IfNotPresent
 
