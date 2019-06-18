@@ -58,7 +58,7 @@ events.on("push", async (e, project) => {
     "ls -lart",
     "cd /src",
     "cd my-chart/",
-    "helm upgrade giggly-rabbit --set=image.tag=$latestTag my-chart/",    //another way of tagging and upgrading directly
+    "helm upgrade --set=image.tag=$var giggly-rabbit giggly-rabbit/my-chart",    //another way of tagging and upgrading directly
     //'sed -i "s/tag.*/tag: "$var"/" values.yaml',
     //'sed -i "s/version.*/version: "$var"/" Chart.yaml',
     //`sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
@@ -66,7 +66,7 @@ events.on("push", async (e, project) => {
     "cd ..",
     "helm ls",
     //"helm install my-chart/",
-    "helm upgrade giggly-rabbit my-chart/",
+    //"helm upgrade giggly-rabbit my-chart/",
     "echo done-work",
 ]
 
