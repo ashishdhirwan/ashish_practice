@@ -1,6 +1,8 @@
 const { events, Job, Group } = require('brigadier')
 
-events.on("push", async () => {
+events.on("push", async (e, project) => {
+
+  var jsonPayload = JSON.parse(e.payload);
   var dest = "/mnt/brigade/share/keys.txt";
   let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
@@ -73,7 +75,14 @@ events.on("push", async () => {
     "echo done-work",
 ]
 
-  Group.runEach([gittask, dockerbuild, helmtask])
+if(e.type == 'push'){
+  if(jsonPayload.ref == "refs/heads/master") {
+    await gittask.run();
+    await dockerbuild.run();
+    await.helmtask.run();
+  }
+}
+ // Group.runEach([gittask, dockerbuild, helmtask])
 
 })
 
