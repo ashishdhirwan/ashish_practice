@@ -40,7 +40,7 @@ events.on("push", async (e, project) => {
     "dockerd-entrypoint.sh &",
     "docker build -t dhirwanashish/versioning:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:'cat '" + dest,
+    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:'echo '" + dest,
     "echo done-tagging",
     "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat `)" + dest,
    ]
