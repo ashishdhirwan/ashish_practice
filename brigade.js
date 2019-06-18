@@ -41,11 +41,11 @@ events.on("push", async (e, project) => {
     "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
     "echo done-auth",
     "cd /src",
-    "docker build -t dhirwanashish/versioning:latest .",
+    "docker build -t dhirwanashish/gittag:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$var",
+    "docker tag dhirwanashish/gittag:latest gcr.io/my-project-70505/dhirwanashish/gittag:$var",
     "echo done-tagging",
-    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$var",
+    "docker push gcr.io/my-project-70505/dhirwanashish/gittag:$var",
    ]
 
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
