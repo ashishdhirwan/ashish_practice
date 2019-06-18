@@ -31,6 +31,7 @@ events.on("push", async (e, project) => {
     DOCKER_DRIVER: "overlay"
   }
   dockerbuild.tasks = [
+    'var=echo ' + dest,
     "sleep 10",
     "gcloud auth configure-docker",
     "gcloud config set project my-project-70505",
@@ -40,7 +41,7 @@ events.on("push", async (e, project) => {
     "dockerd-entrypoint.sh &",
     "docker build -t dhirwanashish/versioning:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:'echo '" + dest,
+    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$var",
     "echo done-tagging",
     "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat `)" + dest,
    ]
