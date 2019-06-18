@@ -39,9 +39,9 @@ events.on("push", async (e, project) => {
     "dockerd-entrypoint.sh &",
     "docker build -t dhirwanashish/versioning:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat $latestTag`)" + dest,
+    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat keys.txt`)" + dest,
     "echo done-tagging",
-    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat $latestTag`)" + dest,
+    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat keys.txt`)" + dest,
    ]
 
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
