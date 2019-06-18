@@ -4,31 +4,32 @@ repository: "github.com/ashishdhirwan/ashish_practice"
 cloneURL: "https://github.com/ashishdhirwan/ashish_practice.git"
 github:
   token: "671c24d42bbc17a673476a66ba34be858a3ccbe8"
-  key: "MIIEpgIBAAKCAQEAx00/aiZeniQ2z0u8tblK43MBUrg9St+5/OTNxaxdJlnk9f/4
-	xybERKs5k/Cw2KH5ICnd3OdlwTGniCWxUBErj+sVa6kqWw3X3VxPhnZ3/+OJHt/x
-	j0ffpHI1XHiPnDoua6uaWobgYeltLZKh1awxwGmpOvvBbmsm9s5c3qXrRDxxvHXg
-	Me0JWHBHcC3PG8vs0VafNj1YzZY6KxzGS5JVceutWk5Vo4YInRgSTyvCnX0ob21E
-	UTU107Oxcsyn833cnuT0Jk12lNkI94xU7dEjrFw8yokaxwlZU/E7b3aAM5GInE83
-	EvsnG4RbR1P9nEpWDBcH/nIR8icZz+Iv4UOD2wIDAQABAoIBAQCwZkjYlTlt0zPH
-	6osOdQA5rJLhOjzVxouBsKoIafTQewRST8tLyZ4yATMnJAQC2en8c9HxMcY4ZtCX
-	inUUHv5llXcSIVph2TDUtl2U78pqbGPzNddCMCVcEdH1FKhXaI+psOsfcP2s68Q8
-	b+pZit1GJr8oe6fLKYAFNsWwMz621w4v02TkT2pGSs/ARYlDi2nZtUxjD2MHdZj6
-	RNoiOBWZwiJVCIji+WP3T0XEdDz0b0ozxqb80hvI6Ha7kY8qwKrXwpO1ofdEcshP
-	zFTzlHZpF3iOURrX8ggQoMqqI6f4t0Bf4/2FpSC/jUqnqF+9SrjiJ/sX+yVPnOX+
-	cZdrANOBAoGBAP8Dbw9XK1S3lB3TwLnSwf6asdxHcgL5zC3CNT+6UtgJOwSQu3rD
-	z31JkH0VrnFoSQ6nHKdOS7iBjraBWpB+nHIuoP7Bx09tsqbgTr6dSeRff+6O2EBX
-	EoJsPvVcO501cOjfzNgSKWicuSQi4fF9d0JkEQc5ArzdbR1E5qrQ/Ud7AoGBAMgS
-	owk0jtE13fsLqbl054SbLuO/r/RcBHGd9BWQRq81sNOeOxm9Vz0OnUPqGjbE20Zs
-	T4q70TRmNNWkOEYPXZ4gKny0Y6L9RGP34qkJTLV0v7MtCkDmzXyI4GDptTuTVkJE
-	A8XRYcRn+gf6LcjWDi3t8c1UXTkfoGQQpYouL9chAoGBANoPLaCIgVznvZfjwiEj
-	vw7faMdbsHoq8BUQxEfCI6Tn/7dfq3DGj14q0YqkR45iBlapPy8xHD6hSk91POPh
-	4BUjGje9q5iXzPQ1SiBkjxLhNpvfObuKuSEdPpjATZmYYPxAowEARrhVi1sDGQFO
-	r/PtbUIn1dd54BvvFu9p1aqRAoGBAL1+qVx2oy4TzwOPsFkvGHjIYkjjrUvMO4lB
-	CYXC+K/KMoi8PU3Lv2zdAqboe5uUJ/szasMD0MnIZBJVT9dLhmfWH2etkxE0wCnP
-	BqcDX9wdj9OsvSFreQSSv7IKqNScX/6zXL9n6SmVMYOMuQCXfSaTT4oidYk9IzSj
-	b6bIyBcBAoGBAJKuL/VXJAwBOBLOaWokFZxJBnswbnpNRyG1VPRxbGwvogPuhsg7
-	V9NeG1xy7XBupwkrtIsvpJwjnYw7vPPQW6qWRpHXqjR2oiCPsna82HoFM6FWd8qt
-	Ii+156bSJMpWLe/9ceQvIGu2s9Rc2gMkBYmt1Sts8ppiwXA1agN9ZBij"
+  key: |
+    "MIIEpgIBAAKCAQEAx00/aiZeniQ2z0u8tblK43MBUrg9St+5/OTNxaxdJlnk9f/4
+     xybERKs5k/Cw2KH5ICnd3OdlwTGniCWxUBErj+sVa6kqWw3X3VxPhnZ3/+OJHt/x
+     j0ffpHI1XHiPnDoua6uaWobgYeltLZKh1awxwGmpOvvBbmsm9s5c3qXrRDxxvHXg
+     Me0JWHBHcC3PG8vs0VafNj1YzZY6KxzGS5JVceutWk5Vo4YInRgSTyvCnX0ob21E
+     UTU107Oxcsyn833cnuT0Jk12lNkI94xU7dEjrFw8yokaxwlZU/E7b3aAM5GInE83
+     EvsnG4RbR1P9nEpWDBcH/nIR8icZz+Iv4UOD2wIDAQABAoIBAQCwZkjYlTlt0zPH
+     6osOdQA5rJLhOjzVxouBsKoIafTQewRST8tLyZ4yATMnJAQC2en8c9HxMcY4ZtCX
+     inUUHv5llXcSIVph2TDUtl2U78pqbGPzNddCMCVcEdH1FKhXaI+psOsfcP2s68Q8
+     b+pZit1GJr8oe6fLKYAFNsWwMz621w4v02TkT2pGSs/ARYlDi2nZtUxjD2MHdZj6
+     RNoiOBWZwiJVCIji+WP3T0XEdDz0b0ozxqb80hvI6Ha7kY8qwKrXwpO1ofdEcshP
+     zFTzlHZpF3iOURrX8ggQoMqqI6f4t0Bf4/2FpSC/jUqnqF+9SrjiJ/sX+yVPnOX+
+     cZdrANOBAoGBAP8Dbw9XK1S3lB3TwLnSwf6asdxHcgL5zC3CNT+6UtgJOwSQu3rD
+     z31JkH0VrnFoSQ6nHKdOS7iBjraBWpB+nHIuoP7Bx09tsqbgTr6dSeRff+6O2EBX
+     EoJsPvVcO501cOjfzNgSKWicuSQi4fF9d0JkEQc5ArzdbR1E5qrQ/Ud7AoGBAMgS
+     owk0jtE13fsLqbl054SbLuO/r/RcBHGd9BWQRq81sNOeOxm9Vz0OnUPqGjbE20Zs
+     T4q70TRmNNWkOEYPXZ4gKny0Y6L9RGP34qkJTLV0v7MtCkDmzXyI4GDptTuTVkJE
+     A8XRYcRn+gf6LcjWDi3t8c1UXTkfoGQQpYouL9chAoGBANoPLaCIgVznvZfjwiEj
+     vw7faMdbsHoq8BUQxEfCI6Tn/7dfq3DGj14q0YqkR45iBlapPy8xHD6hSk91POPh
+     4BUjGje9q5iXzPQ1SiBkjxLhNpvfObuKuSEdPpjATZmYYPxAowEARrhVi1sDGQFO
+     r/PtbUIn1dd54BvvFu9p1aqRAoGBAL1+qVx2oy4TzwOPsFkvGHjIYkjjrUvMO4lB
+     CYXC+K/KMoi8PU3Lv2zdAqboe5uUJ/szasMD0MnIZBJVT9dLhmfWH2etkxE0wCnP
+     BqcDX9wdj9OsvSFreQSSv7IKqNScX/6zXL9n6SmVMYOMuQCXfSaTT4oidYk9IzSj
+     b6bIyBcBAoGBAJKuL/VXJAwBOBLOaWokFZxJBnswbnpNRyG1VPRxbGwvogPuhsg7
+     V9NeG1xy7XBupwkrtIsvpJwjnYw7vPPQW6qWRpHXqjR2oiCPsna82HoFM6FWd8qt
+     Ii+156bSJMpWLe/9ceQvIGu2s9Rc2gMkBYmt1Sts8ppiwXA1agN9ZBij"
 sharedSecret: "mysecretkey"
 kubernetes:
   buildStorageClass: local-nfs
