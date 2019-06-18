@@ -23,19 +23,6 @@ events.on("push", async (e, project) => {
     "echo $latestTag >" + dest
   ]
 
-
-/*
-  let gcloudauth = new Job("docker","dhirwanashish/asd-devops:v1");
-  gcloudauth.tasks = [
-    "sleep 10",
-    "gcloud auth configure-docker",
-    "gcloud config set project my-project-70505",
-    "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
-    "echo done-auth",
-    "cd /src",
-   ]  
-*/
-
   let dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
   dockerbuild.privileged = true;
   dockerbuild.storage.enabled = true;
@@ -52,9 +39,9 @@ events.on("push", async (e, project) => {
     "dockerd-entrypoint.sh &",
     "docker build -t dhirwanashish/versioning:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$latestTag",
+    "docker tag dhirwanashish/versioning:latest gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat $latestTag`)" + dest,
     "echo done-tagging",
-    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat $latestTag`)",
+    "docker push gcr.io/my-project-70505/dhirwanashish/versioning:$(`cat $latestTag`)" + dest,
    ]
 
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
@@ -79,10 +66,10 @@ if(e.type == 'push'){
   if(jsonPayload.ref == "refs/heads/master") {
     await gittask.run();
     await dockerbuild.run();
-    await.helmtask.run();
+    await helmtask.run();
   }
 }
- // Group.runEach([gittask, dockerbuild, helmtask])
+// Group.runEach([gittask, dockerbuild, helmtask])
 
 })
 
