@@ -8,13 +8,13 @@ events.on("push", async () => {
     "cd /src",
     'echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials',
     "git config credential.helper 'store --file .git-credentials'",
-    //"git remote add origin https://github.com/ashishdhirwan/practice.git", //using this tag is not showing in github
+    "git remote add origin https://github.com/ashishdhirwan/practice.git", //using this tag is not showing in github
     "wget -q -O gitversion https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.1/gitversion_linux_amd64",
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
     "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
     "git branch",
-    "git remote add origin https://github.com/ashishdhirwan/practice.git", //using this tag can work but newly have to start everything
+    //"git remote add origin https://github.com/ashishdhirwan/practice.git", //using this tag can work but newly have to start everything
     "git push --tags origin",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     "echo $latestTag",
