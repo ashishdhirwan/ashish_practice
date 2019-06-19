@@ -10,7 +10,7 @@ events.on("push", async (e, project) => {
     "cd /src",
     'echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials',
     "git config credential.helper 'store --file .git-credentials'",
-    "git remote add origin https://github.com/ashishdhirwan/practice.git", //using this tag is not showing in github
+    "git remote add origin https://github.com/ashishdhirwan/ashish_practice.git", //using this tag is not showing in github
     "wget -q -O gitversion https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.1/gitversion_linux_amd64",
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
