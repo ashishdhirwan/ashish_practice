@@ -76,6 +76,7 @@ events.on("push", async (e, project) => {
     "echo done-work",
 ]
 
+
 if(e.type == 'push'){
   if(jsonPayload.ref == "refs/heads/master") {
     await linttask.run();
