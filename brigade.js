@@ -71,8 +71,8 @@ events.on("push", async (e, project) => {
     "cat values.yaml",
     "cd ..",
     "helm ls",
-    "helm install my-chart/",
-    //"helm upgrade giggly-rabbit my-chart/",
+    //"helm install my-chart/",
+    "helm upgrade nordic-emu my-chart/",
     "echo done-work",
    ];
 
