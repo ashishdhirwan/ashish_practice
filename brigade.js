@@ -21,14 +21,14 @@ events.on("push", async (e, project) => {
     "echo $latestTag",
     'echo $latestTag >' + dest,
     "cat " + dest,
-  ]
+   ];
 
   let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "cd /src",
     "npm run eslint"
-  ]
+   ];
 
   let dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
   dockerbuild.privileged = true;
@@ -53,7 +53,7 @@ events.on("push", async (e, project) => {
     "docker tag dhirwanashish/dev:latest gcr.io/my-project-70505/dhirwanashish/dev:$var",
     "echo done-tagging",
     "docker push gcr.io/my-project-70505/dhirwanashish/dev:$var",
-   ]
+   ];
 
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
   helmtask.storage.enabled = true;
@@ -71,10 +71,10 @@ events.on("push", async (e, project) => {
     "cat values.yaml",
     "cd ..",
     "helm ls",
-    //"helm install my-chart/",
-    "helm upgrade giggly-rabbit my-chart/",
+    "helm install my-chart/",
+    //"helm upgrade giggly-rabbit my-chart/",
     "echo done-work",
-]
+   ];
 
 
 if(e.type == 'push'){
