@@ -23,7 +23,7 @@ events.on("push", async (e, project) => {
     "cat " + dest,
   ]
 
-  let linttask = new Job("linttask","dhirwanashish/asd-devops:v1");
+  let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "cd /src",
