@@ -22,7 +22,7 @@ class App extends Component {
         </header> */}
         <Dashboard />
       </div>
-    );
+    )
   }
 }
 

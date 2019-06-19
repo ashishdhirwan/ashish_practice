@@ -10,18 +10,24 @@ events.on("push", async (e, project) => {
     "cd /src",
     'echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials',
     "git config credential.helper 'store --file .git-credentials'",
-    "git remote add origin https://github.com/ashishdhirwan/ashish_practice.git", //using this tag is not showing in github
+    "git remote add origin https://github.com/ashishdhirwan/ashish_practice.git",
     "wget -q -O gitversion https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.1/gitversion_linux_amd64",
     "chmod u+x ./gitversion",
     "git fetch --tags -q",
     "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
     "git branch",
-    //"git remote add origin https://github.com/ashishdhirwan/practice.git", //using this tag can work but newly have to start everything
     "git push --tags origin",
     "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
     "echo $latestTag",
     'echo $latestTag >' + dest,
     "cat " + dest,
+  ]
+
+  let linttask = new Job("linttask","dhirwanashish/asd-devops:v1");
+  linttask.storage.enabled = true;
+  linttask.tasks = [
+    "cd /src",
+    "npm run eslint"
   ]
 
   let dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
@@ -42,11 +48,11 @@ events.on("push", async (e, project) => {
     "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=my-project-70505",
     "echo done-auth",
     "docker login -u dhirwanashish -p dhirwan10",
-    "docker build -t dhirwanashish/gittag:latest .",
+    "docker build -t dhirwanashish/dev:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/gittag:latest gcr.io/my-project-70505/dhirwanashish/gittag:$var",
+    "docker tag dhirwanashish/gittag:latest gcr.io/my-project-70505/dhirwanashish/dev:$var",
     "echo done-tagging",
-    "docker push gcr.io/my-project-70505/dhirwanashish/gittag:$var",
+    "docker push gcr.io/my-project-70505/dhirwanashish/dev:$var",
    ]
 
   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
@@ -58,9 +64,9 @@ events.on("push", async (e, project) => {
     "ls -lart",
     "cd /src",
     "cd my-chart/",
-    "helm upgrade --set=image.tag=$var giggly-rabbit giggly-rabbit/my-chart",    //another way of tagging and upgrading directly
-    //'sed -i "s/tag.*/tag: "$var"/" values.yaml',
-    //'sed -i "s/version.*/version: "$var"/" Chart.yaml',
+    //"helm upgrade --set=image.tag=$var giggly-rabbit giggly-rabbit/my-chart",    //another way of tagging and upgrading directly
+    'sed -i "s/tag.*/tag: "$var"/" values.yaml',
+    'sed -i "s/version.*/version: "$var"/" Chart.yaml',
     //`sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
     "cat values.yaml",
     "cd ..",
@@ -72,13 +78,12 @@ events.on("push", async (e, project) => {
 
 if(e.type == 'push'){
   if(jsonPayload.ref == "refs/heads/master") {
+    await linttask.run();
     await gittask.run();
     await dockerbuild.run();
     await helmtask.run();
   }
 }
-// Group.runEach([gittask, dockerbuild, helmtask])
-
 })
 
 
