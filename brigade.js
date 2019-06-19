@@ -72,7 +72,7 @@ events.on("push", async (e, project) => {
     "cd ..",
     "helm ls",
     //"helm install my-chart/",
-    //"helm upgrade giggly-rabbit my-chart/",
+    "helm upgrade giggly-rabbit my-chart/",
     "echo done-work",
 ]
 
