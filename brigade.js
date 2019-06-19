@@ -50,7 +50,7 @@ events.on("push", async (e, project) => {
     "docker login -u dhirwanashish -p dhirwan10",
     "docker build -t dhirwanashish/dev:latest .",
     "echo done-build",
-    "docker tag dhirwanashish/gittag:latest gcr.io/my-project-70505/dhirwanashish/dev:$var",
+    "docker tag dhirwanashish/dev:latest gcr.io/my-project-70505/dhirwanashish/dev:$var",
     "echo done-tagging",
     "docker push gcr.io/my-project-70505/dhirwanashish/dev:$var",
    ]
