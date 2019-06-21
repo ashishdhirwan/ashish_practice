@@ -27,7 +27,7 @@ events.on("push", async (e, project) => {
 
 
   if(e.type === 'push') {
-    if(jsonPayload.ref == "refs/heads/master") {
+    if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
       await linting.UseCaseGit().run();
       await versioning.UseCaseGit().run();
