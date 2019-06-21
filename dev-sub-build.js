@@ -1,7 +1,7 @@
 const { events, Job, Group } = require('brigadier');
 class BuildTask{
 
-UseCaseBuild(){
+usecasebuild(){
 const dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
 dockerbuild.privileged = true;
 dockerbuild.storage.enabled = true;

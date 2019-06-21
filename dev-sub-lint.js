@@ -1,7 +1,7 @@
 const { Job } = require('brigadier');
 class LintTask{
 
-  UseCaseLint(){
+  usecaselint(){
   const linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [

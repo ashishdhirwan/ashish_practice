@@ -1,7 +1,7 @@
 const { events, Job, Group } = require('brigadier');
 class HelmTask{
 
-UseCaseHelm(){
+usecasehelm(){
   const helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
   helmtask.storage.enabled = true;
   helmtask.tasks = [

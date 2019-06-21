@@ -1,7 +1,7 @@
 const { Job } = require('brigadier');
 class GitTask{
 
-UseCaseGit(){
+usecasegit(){
     // var jsonPayload = JSON.parse(e.payload);
     var dest = "/mnt/brigade/share/keys.txt";
         
