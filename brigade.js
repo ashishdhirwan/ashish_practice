@@ -1,7 +1,6 @@
 const { events, Job, Group } = require('brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('dev-mod');
 
-
 events.on("push", (e, project) => {
     console.log("Received a push event");
     let jsonPayload = JSON.parse(e.payload);    
