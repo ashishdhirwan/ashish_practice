@@ -1,3 +1,4 @@
+/*
 const { events, Job, Group } = require('brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('dev_mod');
 
@@ -38,6 +39,7 @@ events.on("push", async (e, project) => {
   }
 });
 
+*/
 /*
 //     if(e.type == 'push'){
 //       if(jsonPayload.ref == "refs/heads/master") {
@@ -64,7 +66,7 @@ events.on("push", async (e, project) => {
 */
 
 
-/*
+
 const { events, Job, Group } = require('brigadier')
 
 events.on("push", async (e, project) => {
@@ -121,30 +123,30 @@ events.on("push", async (e, project) => {
     "echo done-tagging",
     "docker push gcr.io/my-project-70505/dhirwanashish/dev:$var",
    ];
-*/
 
-//  let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
-//  helmtask.storage.enabled = true;
-//  helmtask.tasks = [
-//    "cd /mnt/brigade/share",
-//    "var=$(cat keys.txt)",
-//    "echo $var",
-//    "ls -lart",
-//    "cd /src",
-//    "cd my-chart/",
-    //"helm upgrade --set=image.tag=$var giggly-rabbit giggly-rabbit/my-chart",    //another way of tagging and upgrading directly
-//    'sed -i "s/tag.*/tag: "$var"/" values.yaml',
-//    'sed -i "s/version.*/version: "$var"/" Chart.yaml',
-    //`sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
-//    "cat values.yaml",
-//    "cd ..",
-//    "helm ls",
-    //"helm install my-chart/",
-//    "helm upgrade nordic-emu my-chart/",
-//    "echo done-work",
-//   ];
 
-/*
+ let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
+ helmtask.storage.enabled = true;
+ helmtask.tasks = [
+   "cd /mnt/brigade/share",
+   "var=$(cat keys.txt)",
+   "echo $var",
+   "ls -lart",
+   "cd /src",
+   "cd my-chart/",
+    "helm upgrade --set=image.tag=$var giggly-rabbit giggly-rabbit/my-chart",    //another way of tagging and upgrading directly
+   'sed -i "s/tag.*/tag: "$var"/" values.yaml',
+   'sed -i "s/version.*/version: "$var"/" Chart.yaml',
+    `sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
+   "cat values.yaml",
+   "cd ..",
+   "helm ls",
+    "helm install my-chart/",
+   "helm upgrade nordic-emu my-chart/",
+   "echo done-work",
+  ];
+
+
 if(e.type == 'push'){
   if(jsonPayload.ref == "refs/heads/master") {
     await linttask.run();
@@ -155,7 +157,7 @@ if(e.type == 'push'){
 }
 })
 
-*/
+
 
 
 
