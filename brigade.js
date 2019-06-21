@@ -1,22 +1,57 @@
 const { events, Job, Group } = require('brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('dev_mod');
 
+let Linting = new LintTask(e, project);
+let Versioning = new GitTask(e, project);
+let Building = new BuildTask(e, project);
+let Helming = new HelmTask(e, project);
+
+Linting.tasks = [
+  Linting.UseCaseLint();
+];
+
+Versioning.tasks = [
+  Versioning.UseCaseGit);
+];
+
+Building.tasks = [
+  Building.UseCaseBuild();
+];
+
+Helming.tasks = [
+  Helming.UseCaseHelm();
+];
+
 events.on("push", async (e, project) => {
     console.log("Received a push event");
     let jsonPayload = JSON.parse(e.payload);    
     // let HelmTask = new HelmTask();
 
+
     if(e.type == 'push'){
       if(jsonPayload.ref == "refs/heads/master") {
- //       Group.runEach([
-        await LintTask.UseCaseLint().run();
-        await GitTask.UseCaseGit().run();
-        await BuildTask.UseCaseBuild().run();
-        await HelmTask.UseCaseHelm().run();
- //       ]);
+        Group.runEach([
+        await Linting.run();
+        await GitTask.run();
+        await BuildTask.run();
+        await HelmTask.run();
+        ]);
       };
     };
 /*
+
+
+//     if(e.type == 'push'){
+//       if(jsonPayload.ref == "refs/heads/master") {
+//         Group.runEach([
+//         await Linting.UseCaseLint();
+//         await GitTask.UseCaseGit();
+//         await BuildTask.UseCaseBuild();
+//         await HelmTask.UseCaseHelm();
+//         ]);
+//       };
+//     };
+// /*
     if (e.type === 'push') {
         if (jsonPayload.ref === "refs/heads/master") {
             Group.runEach([
