@@ -2,7 +2,7 @@ const { events, Job, Group } = require('brigadier');
 class HelmTask{
 
 UseCaseHelm(){
-  let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
+  const helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
   "cd /mnt/brigade/share",
@@ -22,6 +22,7 @@ UseCaseHelm(){
   "helm upgrade nordic-emu my-chart/",
   "echo done-work",
  ];
+ return helmtask;
 }
 }
 module.exports = HelmTask;

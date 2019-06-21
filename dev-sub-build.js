@@ -2,7 +2,7 @@ const { events, Job, Group } = require('brigadier');
 class BuildTask{
 
 UseCaseBuild(){
-let dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
+const dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
 dockerbuild.privileged = true;
 dockerbuild.storage.enabled = true;
 dockerbuild.env = {
@@ -26,6 +26,7 @@ dockerbuild.tasks = [
   "echo done-tagging",
   "docker push gcr.io/my-project-70505/dhirwanashish/dev:$var",
  ];
+ return dockerbuild;
 }
 }
 module.exports = BuildTask;

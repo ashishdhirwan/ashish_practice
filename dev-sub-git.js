@@ -1,11 +1,11 @@
-const { events, Job, Group } = require('brigadier');
+const { Job } = require('brigadier');
 class GitTask{
 
 UseCaseGit(){
-    var jsonPayload = JSON.parse(e.payload);
+    // var jsonPayload = JSON.parse(e.payload);
     var dest = "/mnt/brigade/share/keys.txt";
         
-    let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
+    const gittask = new Job("gittask", "dhirwanashish/asd-devops:v1");
     gittask.storage.enabled = true;
     gittask.tasks = [
         "cd /src",
@@ -23,6 +23,8 @@ UseCaseGit(){
         'echo $latestTag >' + dest,
         "cat " + dest,
         ];
+
+        return gittask;
 }
 }
 module.exports = GitTask;
