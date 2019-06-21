@@ -8,12 +8,12 @@ events.on("push", async (e, project) => {
 
     if(e.type == 'push'){
       if(jsonPayload.ref == "refs/heads/master") {
-        Group.runEach([
-        await LintTask.UseCaseLint();
-        await GitTask.UseCaseGit();
-        await BuildTask.UseCaseBuild();
-        await HelmTask.UseCaseHelm();
-        ]);
+ //       Group.runEach([
+        await LintTask.UseCaseLint().run();
+        await GitTask.UseCaseGit().run();
+        await BuildTask.UseCaseBuild().run();
+        await HelmTask.UseCaseHelm().run();
+ //       ]);
       };
     };
 /*
