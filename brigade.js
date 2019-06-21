@@ -30,12 +30,12 @@ events.on("push", async (e, project) => {
 
     if(e.type == 'push'){
       if(jsonPayload.ref == "refs/heads/master") {
-  //      Group.runEach([
-        await Linting.run();
-        await Versioning.run();
-        await Building.run();
-        await Helming.run();
-  //      ]);
+        Group.runEach([
+        await Linting;
+        await Versioning;
+        await Building;
+        await Helming;
+        ]);
       };
     };
   };
