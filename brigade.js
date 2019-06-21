@@ -32,12 +32,13 @@ events.on("push", async (e, project) => {
       if(jsonPayload.ref == "refs/heads/master") {
   //      Group.runEach([
         await Linting.run();
-        await GitTask.run();
-        await BuildTask.run();
-        await HelmTask.run();
+        await Versioning.run();
+        await Building.run();
+        await Helming.run();
   //      ]);
       };
     };
+  };
 /*
 
 
