@@ -21,22 +21,22 @@ let helming = new HelmTask();
 // ];
 
 events.on("push", async (e, project) => {
-    console.log("Received a push event");
-    let jsonPayload = JSON.parse(e.payload);    
-    // let HelmTask = new HelmTask();
+  console.log("Received a push event");
+  let jsonPayload = JSON.parse(e.payload);    
+  // let HelmTask = new HelmTask();
 
 
-    if(e.type == 'push'){
-      if(jsonPayload.ref == "refs/heads/master") {
-  //      Group.runEach([
-        await linting.UseCaseGit().run();
-        await versioning.UseCaseGit().run();
-        await building.UseCaseGit().run();
-        await helming.UseCaseGit().run();
-  //      ]);
-      };
-    };
-  };
+  if(e.type === 'push') {
+    if(jsonPayload.ref == "refs/heads/master") {
+//      Group.runEach([
+      await linting.UseCaseGit().run();
+      await versioning.UseCaseGit().run();
+      await building.UseCaseGit().run();
+      await helming.UseCaseGit().run();
+//      ]);
+    }
+  }
+});
 
 /*
 //     if(e.type == 'push'){
