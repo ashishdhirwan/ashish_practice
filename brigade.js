@@ -7,19 +7,19 @@ let Building = new BuildTask(e, project);
 let Helming = new HelmTask(e, project);
 
 Linting.tasks = [
-  Linting.UseCaseLint();
+  Linting.UseCaseLint()
 ];
 
 Versioning.tasks = [
-  Versioning.UseCaseGit();
+  Versioning.UseCaseGit()
 ];
 
 Building.tasks = [
-  Building.UseCaseBuild();
+  Building.UseCaseBuild()
 ];
 
 Helming.tasks = [
-  Helming.UseCaseHelm();
+  Helming.UseCaseHelm()
 ];
 
 events.on("push", async (e, project) => {
