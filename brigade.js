@@ -7,6 +7,15 @@ events.on("push", (e, project) => {
     let jsonPayload = JSON.parse(e.payload);    
     // let HelmTask = new HelmTask();
 
+    if(e.type == 'push'){
+      if(jsonPayload.ref == "refs/heads/master") {
+        await LintTask.UseCaseLint().run();
+        await GitTask.UseCaseGit().run();
+        await BuildTask.UseCaseBuild().run();
+        await HelmTask.UseCaseHelm().run();
+      }
+    }
+/*
     if (e.type === 'push') {
         if (jsonPayload.ref === "refs/heads/master") {
             Group.runEach([
@@ -18,7 +27,7 @@ events.on("push", (e, project) => {
             };
         };
     });
-
+*/
 
 
 /*
