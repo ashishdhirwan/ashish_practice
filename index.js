@@ -1,4 +1,4 @@
-dev-mod(){
+const dev_mod = () => {
 const { HelmTask } = require('./HelmTask');
 const { LintTask } = require('./LintTask');
 const { GitTask } = require('./GitTask');
@@ -13,5 +13,5 @@ module.exports = {
 */
 
 }
-module.exports = dev-mod();
+module.exports = dev_mod;
 //module.exports = new HelmTask();

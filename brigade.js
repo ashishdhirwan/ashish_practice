@@ -1,5 +1,5 @@
 const { events, Job, Group } = require('brigadier');
-const { HelmTask, LintTask, GitTask, BuildTask } = require('dev-mod');
+const { HelmTask, LintTask, GitTask, BuildTask } = require('dev_mod');
 
 events.on("push", (e, project) => {
     console.log("Received a push event");
@@ -8,10 +8,10 @@ events.on("push", (e, project) => {
 
     if(e.type == 'push'){
       if(jsonPayload.ref == "refs/heads/master") {
-        await LintTask.UseCaseLint().run();
-        await GitTask.UseCaseGit().run();
-        await BuildTask.UseCaseBuild().run();
-        await HelmTask.UseCaseHelm().run();
+        await LintTask.UseCaseLint();
+        await GitTask.UseCaseGit();
+        await BuildTask.UseCaseBuild();
+        await HelmTask.UseCaseHelm();
       }
     }
 /*
