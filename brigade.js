@@ -11,7 +11,7 @@ Linting.tasks = [
 ];
 
 Versioning.tasks = [
-  Versioning.UseCaseGit);
+  Versioning.UseCaseGit();
 ];
 
 Building.tasks = [
