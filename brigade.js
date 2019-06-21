@@ -8,10 +8,12 @@ events.on("push", (e, project) => {
 
     if(e.type == 'push'){
       if(jsonPayload.ref == "refs/heads/master") {
+        Group.runEach([
         await LintTask.UseCaseLint();
         await GitTask.UseCaseGit();
         await BuildTask.UseCaseBuild();
         await HelmTask.UseCaseHelm();
+        ]);
       }
     }
 /*
