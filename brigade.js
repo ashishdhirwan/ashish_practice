@@ -1,6 +1,8 @@
+const { events } = require('brigadier')
+const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
+//const { HelmTask, LintTask, GitTask, BuildTask } = require('dev_mod');
 
-const { events, Job, Group } = require('brigadier');
-const { HelmTask, LintTask, GitTask, BuildTask } = require('dev_mod');
+console.log("events",events);
 
 let linting = new LintTask();
 let versioning = new GitTask();
@@ -38,6 +40,7 @@ events.on("push", async (e, project) => {
     }
   }
 });
+
 
 
 /*
@@ -135,7 +138,8 @@ events.on("push", async (e, project) => {
 //    "cd /src",
 //    "cd my-chart/",
 //     "helm upgrade --set=image.tag=$var giggly-rabbit giggly-rabbit/my-chart",    //another way of tagging and upgrading directly
-//    'sed -i "s/tag.*/tag: "$var"/" values.yaml',
+//    'sed -i "s/tag.*/
+//tag: "$var"/" values.yaml',
 //    'sed -i "s/version.*/version: "$var"/" Chart.yaml',
 //     `sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
 //    "cat values.yaml",
