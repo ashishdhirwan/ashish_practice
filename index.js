@@ -1,17 +1,18 @@
-const dev_mod = () => {
-const { HelmTask } = require('./HelmTask');
-const { LintTask } = require('./LintTask');
-const { GitTask } = require('./GitTask');
-const { BuildTask } = require('./BuildTask');
+const HelmTask = require('./dev-sub-helm');
+const GitTask = require('./dev-sub-git');
+const BuildTask = require('./dev-sub-build');
+const LintTask  = require('./dev-sub-lint');
 
-/*
-module.exports = {
-    HelmTask: require('./HelmTask'),
-    LintTask: require('./LintTask'),
-    GitTask: require('./GitTask'),
-    BuildTask: require('./BuildTask'),
-*/
+const dev_mod_function = () => {
+LintTask.usecaselint();
 
-}
-module.exports = dev_mod;
+return {
+    HelmTask,
+    LintTask,
+    GitTask,
+    BuildTask
+};
+};
+const dev_mod = dev_mod_function();
+module.exports = new dev_mod();
 //module.exports = new HelmTask();
