@@ -1,5 +1,5 @@
-//const { events, Job, Group } = require('brigadier');
-const { Job } = require('@brigadecore/brigadier');
+const { events, Job, Group } = require('brigadier');
+//const { Job } = require('@brigadecore/brigadier');
 class HelmTask{
 
 usecasehelm(){
