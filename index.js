@@ -36,7 +36,7 @@ module.exports = new dev_mod();
  
 //exports.devops_module = () => {
 module.exports = {
-HelmTask, GitTask,BuildTask,LintTask
+HelmTask, GitTask, BuildTask, linting
 };
 //};
 
