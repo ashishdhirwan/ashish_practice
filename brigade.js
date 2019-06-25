@@ -15,7 +15,10 @@ console.log("printing");
 catch(err){
   console.log(err);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> efb4a7241d6b07e1d5c20d73500ba955744c57d3
 
 events.on("push", async (e, project) => {
   console.log("Received a push event");
