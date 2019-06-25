@@ -1,11 +1,11 @@
 //const { Job } = require('brigadier');
 const { events } = require('@brigadecore/brigadier');
-const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
+const { HelmTask, linting, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 try {
 
 console.log("events",events);
-let linting = new LintTask();
+//const linting = new LintTask();
 let versioning = new GitTask();
 let building = new BuildTask();
 let helming = new HelmTask();
@@ -19,8 +19,6 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   let jsonPayload = JSON.parse(e.payload);    
   // let HelmTask = new HelmTask();
-
-
 
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
