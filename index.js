@@ -1,7 +1,7 @@
 const HelmTask = require('./dev-sub-helm');
 const GitTask = require('./dev-sub-git');
 const BuildTask = require('./dev-sub-build');
-const linting  = require('./dev-sub-lint');
+const LintTask  = require('./dev-sub-lint');
 
 
 /* console.log("HelmTask::::::::::::::", new HelmTask().usecasehelm());
@@ -36,7 +36,7 @@ module.exports = new dev_mod();
  
 //exports.devops_module = () => {
 module.exports = {
-HelmTask, GitTask, BuildTask, linting
+HelmTask, GitTask, BuildTask, LintTask
 };
 //};
 

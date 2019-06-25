@@ -1,11 +1,11 @@
 //const { Job } = require('brigadier');
 const { events } = require('@brigadecore/brigadier');
-const { HelmTask, linting, GitTask, BuildTask } = require('./index.js');
+const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 try {
 
 console.log("events",events);
-//const linting = new LintTask();
+const linting = new LintTask();
 let versioning = new GitTask();
 let building = new BuildTask();
 let helming = new HelmTask();

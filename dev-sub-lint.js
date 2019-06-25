@@ -15,10 +15,13 @@ class LintTask{
 }
 }
 
-const linting = new LintTask();
+
+module.exports = LintTask;
+
+//const linting = new LintTask();
 //v.usecaselint().run(); 
 
-module.exports = linting;
+//module.exports = linting;
  
 
  //module.exports = new Linttask();
