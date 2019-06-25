@@ -1,10 +1,12 @@
-const { Job } = require('brigadier');
-class LintTask {
+const { Job } = require('@brigadecore/brigadier');
+//const { Job } = require('brigadier');
+console.log("use case lint");
+class LintTask{
 
   usecaselint(){
-  const lintTask = new Job("linttask","node:slim");
-  lintTask.storage.enabled = true;
-  lintTask.tasks = [
+  const linttask = new Job("linttask","node:slim");
+  linttask.storage.enabled = true;
+  linttask.tasks = [
     "cd /src",
     "npm run eslint"
    ];
@@ -12,5 +14,10 @@ class LintTask {
   console.log("In use case lint");
 }
 }
-module.exports = new LintTask();
-//module.exports = new Linttask();
+
+/* const v = new LintTask();
+v.usecaselint();
+module.exports = LintTask;
+ */
+
+ //module.exports = new Linttask();
