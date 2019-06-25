@@ -1,5 +1,7 @@
-const { Job } = require('brigadier');
-class LintTask {
+const { Job } = require('@brigadecore/brigadier');
+//const { Job } = require('brigadier');
+console.log("use case lint");
+class LintTask{
 
   usecaselint(){
   const linttask = new Job("linttask","node:slim");
@@ -12,5 +14,10 @@ class LintTask {
   console.log("In use case lint");
 }
 }
+
+/* const v = new LintTask();
+v.usecaselint();
 module.exports = LintTask;
-//module.exports = new Linttask();
+ */
+
+ //module.exports = new Linttask();

@@ -1,27 +1,20 @@
-const { events } = require('brigadier')
+//const { Job } = require('brigadier');
+const { events } = require('@brigadecore/brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
-//const { HelmTask, LintTask, GitTask, BuildTask } = require('dev_mod');
+//const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
+try {
 
 console.log("events",events);
-
 let linting = new LintTask();
 let versioning = new GitTask();
 let building = new BuildTask();
 let helming = new HelmTask();
+console.log("printing");
+}
 
-// linting.tasks = [
-//   linting.UseCaseLint()
-// ];
-
-// Versioning.tasks = Versioning.UseCaseGit();
-
-// Building.tasks = [
-//   Building.UseCaseBuild()
-// ];
-
-// Helming.tasks = [
-//   Helming.UseCaseHelm()
-// ];
+catch(err){
+  console.log(err);
+}
 
 events.on("push", async (e, project) => {
   console.log("Received a push event");
@@ -29,8 +22,9 @@ events.on("push", async (e, project) => {
   // let HelmTask = new HelmTask();
 
 
+
   if(e.type === 'push') {
-    if(jsonPayload.ref === "refs/heads/master") {
+    if(jsonPayload.ref === "refs/heads/") {
 //      Group.runEach([
       await linting.usecaselint().run();
       await versioning.usecasegit().run();
