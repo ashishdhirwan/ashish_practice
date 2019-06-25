@@ -4,8 +4,8 @@ console.log("use case lint",Job);
 
 class LintTask{
 
-  usecaselint(){
-  const linttask = new Job("linttask","node:slim");
+  async usecaselint(){
+  const linttask = await new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "cd /src",
