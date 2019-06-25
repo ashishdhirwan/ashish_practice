@@ -1,6 +1,7 @@
 //const { Job } = require('@brigadecore/brigadier');
 const { Job } = require('brigadier');
-console.log("use case lint");
+console.log("use case lint",Job);
+
 class LintTask{
 
   usecaselint(){
