@@ -12,8 +12,9 @@ class LintTask{
    ];
   //  return linttask;
   console.log("In use case lint");
-}
-}
+return linttask;
+  }
+};
 
 
 module.exports = LintTask;
