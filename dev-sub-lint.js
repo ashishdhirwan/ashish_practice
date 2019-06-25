@@ -14,10 +14,11 @@ class LintTask{
   console.log("In use case lint");
 }
 }
+/* 
+const v = new LintTask();
+v.usecaselint().run(); */
 
-/* const v = new LintTask();
-v.usecaselint();
 module.exports = LintTask;
- */
+ 
 
  //module.exports = new Linttask();

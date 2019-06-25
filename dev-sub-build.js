@@ -7,7 +7,7 @@ dockerbuild.privileged = true;
 dockerbuild.storage.enabled = true;
 dockerbuild.env = {
   DOCKER_DRIVER: "overlay"
-}
+};
 dockerbuild.tasks = [
   "cd /mnt/brigade/share",
   "var=$(cat keys.txt)",

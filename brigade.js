@@ -23,7 +23,7 @@ events.on("push", async (e, project) => {
 
 
   if(e.type === 'push') {
-    if(jsonPayload.ref === "refs/heads/") {
+    if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
       await linting.usecaselint().run();
       await versioning.usecasegit().run();
