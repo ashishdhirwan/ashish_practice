@@ -33,10 +33,12 @@ const dev_mod = dev_mod_function();
 module.exports = new dev_mod();
 //module.exports = dev_mod; */
  
-//const dev_mod = () => {
+//exports.devops_module = () => {
 module.exports = {
 HelmTask, GitTask,BuildTask,LintTask
-} 
+};
+//};
+
 /* class dev{
     asd(){
     module.exports = {
@@ -55,3 +57,6 @@ return {
     };
 }
  */
+
+
+   // "abc":"git+git:url"
