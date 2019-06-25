@@ -27,9 +27,10 @@ dockerbuild.tasks = [
   "echo done-tagging",
   "docker push gcr.io/my-project-70505/dhirwanashish/dev:$var",
  ];
+ console.log("IN Use case build");
  return dockerbuild;
 
- console.log("IN Use case build");
+ //console.log("IN Use case build");
 }
 }
 module.exports = BuildTask;

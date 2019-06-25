@@ -23,8 +23,9 @@ usecasehelm(){
   "helm upgrade nordic-emu my-chart/",
   "echo done-work",
  ];
+ console.log("In Use case helm");
  return helmtask;
-console.log("In Use case helm");
+
 }
 }
 module.exports = HelmTask;
