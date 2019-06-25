@@ -1,8 +1,9 @@
-const { Job } = require('brigadier');
+const { Job } = require('@brigadecore/brigadier');
+//const { Job } = require('brigadier');
 class GitTask{
 
 usecasegit(){
-    var jsonPayload = JSON.parse(e.payload);
+  //  var jsonPayload = JSON.parse(e.payload);
     var dest = "/mnt/brigade/share/keys.txt";
         
     const gittask = new Job("gittask", "dhirwanashish/asd-devops:v1");
