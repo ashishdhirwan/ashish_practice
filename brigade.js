@@ -29,8 +29,9 @@ events.on("push", async (e, project) => {
   // let HelmTask = new HelmTask();
 
 
+
   if(e.type === 'push') {
-    if(jsonPayload.ref === "refs/heads/master") {
+    if(jsonPayload.ref === "refs/heads/check") {
 //      Group.runEach([
       await linting.usecaselint().run();
       await versioning.usecasegit().run();
