@@ -2,7 +2,7 @@
 const { events } = require('@brigadecore/brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
-try {
+//try {
 
 console.log("events",events);
 const linting = new LintTask();
@@ -10,11 +10,12 @@ let versioning = new GitTask();
 let building = new BuildTask();
 let helming = new HelmTask();
 console.log("printing");
-}
 
-catch(err){
+//}
+
+/* catch(err){
   console.log(err);
-}
+} */
 events.on("push", async (e, project) => {
   console.log("Received a push event");
   let jsonPayload = JSON.parse(e.payload);    
