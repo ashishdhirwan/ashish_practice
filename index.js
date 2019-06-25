@@ -1,7 +1,7 @@
 const HelmTask = require('./dev-sub-helm');
 const GitTask = require('./dev-sub-git');
 const BuildTask = require('./dev-sub-build');
-const LintTask  = require('./dev-sub-lint');
+const linting  = require('./dev-sub-lint');
 
 
 /* console.log("HelmTask::::::::::::::", new HelmTask().usecasehelm());
