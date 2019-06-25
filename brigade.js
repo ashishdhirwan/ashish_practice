@@ -1,4 +1,4 @@
-const { events } = require('brigadier')
+const { events } = require('@brigadecore/brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('dev_mod');
 
@@ -8,7 +8,7 @@ let linting = new LintTask();
 let versioning = new GitTask();
 let building = new BuildTask();
 let helming = new HelmTask();
-
+console.log("printing")
 // linting.tasks = [
 //   linting.UseCaseLint()
 // ];
