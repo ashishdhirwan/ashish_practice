@@ -9,7 +9,7 @@ RUN npm install
 #copying the code inside folder which is inside container
 COPY . /mydir/app
 # Build and optimize react app
-#RUN npm run build
+RUN npm build
 
 EXPOSE 3000
 #defining entrypoint using cmd so that container does not stop immediately

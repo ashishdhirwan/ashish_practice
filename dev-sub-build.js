@@ -28,7 +28,7 @@ dockerbuild.tasks = [
   "docker push gcr.io/my-project-70505/dhirwanashish/dev:$var",
  ];
  console.log("IN Use case build");
- return dockerbuild;
+ //return dockerbuild;
 
  //console.log("IN Use case build");
 }
