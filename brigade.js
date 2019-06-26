@@ -32,7 +32,7 @@ events.on("push", async (e, project) => {
 
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
-//      Group.runEach([
+      Group.runEach([
       console.log("===============typeof jobinstance=================",typeof jobinstance);
       jobinstance1.run();
       jobinstance2.run();
@@ -41,9 +41,9 @@ events.on("push", async (e, project) => {
       // await GitTask.usecasegit().run();
       // await BuildTask.usecasebuild().run();
       // await HelmTask.usecasehelm().run();
-//      ]);
-    }
-  }
+      ]);
+    };
+  };
 });
 
 
