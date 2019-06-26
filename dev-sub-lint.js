@@ -5,9 +5,9 @@
 
 class LintTask{
 
-  constructor(job) {
-    this.Job = job;
-  }
+  // constructor(job) {
+  //   this.Job = job;
+  // }
 
   usecaselint(){
     console.log(this.Job);

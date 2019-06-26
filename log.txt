@@ -1,0 +1,48 @@
+prestart: no dependencies file found
+prestart: loading script from /vcs/brigade.js
+jobing class Job extends jobImpl.Job {
+    run() {
+        this.jr = new k8s_1.JobRunner().init(this, currentEvent, currentProject, process.env.BRIGADE_SECRET_KEY_REF == 'true');
+        this._podName = this.jr.name;
+        return this.jr.run().catch(err => {
+            // Wrap the message to give clear context.
+            console.error(err);
+            let msg = `job ${this.name}(${this.jr.name}): ${err}`;
+            return Promise.reject(new Error(msg));
+        });
+    }
+    logs() {
+        return this.jr.logs();
+    }
+}
+events EventRegistry {
+  domain: null,
+  _events: { ping: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined }
+printing
+[brigade] brigade-worker version: 1.0.0
+[brigade:k8s] Creating PVC named brigade-worker-01de997tndr9mhwtwqt6ytcmqg
+Received a push event
+[brigade:app]   [0m[97m[41mTypeError[0m[90m:[0m[37m [0m[97mLintTask.usecaselint is not a function[0m
+[0m  [0m
+[0m  [0m[90m-[0m [0m[93mbrigade.js[0m[90m:[0m[93m25[0m[37m [0m[37mEventRegistry.events.on[0m
+[0m  [0m  [0m[90m/home/src/dist/brigade.js:25:90[0m
+[0m  [0m
+[0m  [0m[90m-[0m [0m[93mevents.js[0m[90m:[0m[93m107[0m[37m [0m[37mEventRegistry.fire[0m
+[0m  [0m  [0m[90m[src]/[@brigadecore]/brigadier/out/events.js:107:14[0m
+[0m  [0m
+[0m  [0m[90m-[0m [0m[93mbrigadier.js[0m[90m:[0m[93m34[0m[37m [0m[37mObject.fire[0m
+[0m  [0m  [0m[90m/home/src/dist/brigadier.js:34:20[0m
+[0m  [0m
+[0m  [0m[90m-[0m [0m[93mapp.js[0m[90m:[0m[93m157[0m[37m [0m[37mloadProject.then.then[0m
+[0m  [0m  [0m[90m/home/src/dist/app.js:157:23[0m
+[0m  [0m
+[0m  [0m
+[0m  [0m[90m-[0m [0m[93mnext_tick.js[0m[90m:[0m[93m189[0m[37m [0m[37mprocess._tickCallback[0m
+[0m  [0m  [0m[90minternal/process/next_tick.js:189:7[0m
+[0m  [0m
+[0m
+[brigade:app] error handler is cleaning up
+[brigade:k8s] Destroying PVC named brigade-worker-01de997tndr9mhwtwqt6ytcmqg
+error Command failed with exit code 1.

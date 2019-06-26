@@ -6,7 +6,7 @@ const LintTask = require('./dev-sub-lint');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 //try {
 console.log("events",events);
-const linting = new LintTask(Job);
+
 // let versioning = new GitTask();
 // let building = new BuildTask();
 // let helming = new HelmTask();
@@ -17,13 +17,15 @@ console.log("printing");
 } */
 events.on("push", async (e, project) => {
   console.log("Received a push event");
-  let jsonPayload = JSON.parse(e.payload);    
+  let jsonPayload = JSON.parse(e.payload); 
+  const linting = new LintTask(Job);
+  const jobinstance = linting.usecaselint();   
 
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
       console.log("===============typeof useCaseLint()=================",typeof LintTask.usecaselint());
-      linting.usecaselint().run();
+      jobinstance.run();
       // await GitTask.usecasegit().run();
       // await BuildTask.usecasebuild().run();
       // await HelmTask.usecasehelm().run();
