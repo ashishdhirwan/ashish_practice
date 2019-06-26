@@ -15,6 +15,8 @@ class LintTask{
     linttask.storage.enabled = true;
     linttask.tasks = [
       "cd /src",
+      "npm i",
+      "sleep 40",
       "npm run eslint"
     ];
     //  return linttask;
