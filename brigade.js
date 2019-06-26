@@ -1,5 +1,5 @@
-const { Job , events } = require('brigadier');
-//const { events } = require('@brigadecore/brigadier');
+//const { Job , events } = require('brigadier');
+const { events } = require('@brigadecore/brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 //try {
