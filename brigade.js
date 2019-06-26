@@ -1,9 +1,9 @@
 const { Job , events } = require('brigadier');
-const LintTask = require('./dev-sub-lint');
+//const LintTask = require('./dev-sub-lint');
 
 // console.log("jobing",Job);
 //const { events } = require('@brigadecore/brigadier');
-// const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
+const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 //try {
 // console.log("events",events);
@@ -20,15 +20,24 @@ events.on("push", async (e, project) => {
   let jsonPayload = JSON.parse(e.payload); 
   console.log("Received a push event");
   const linting = new LintTask(Job);
+  const giting = new GitTask(Job);
+  const building = new BuildTask(Job);
+  const helming = new HelmTask(Job);
   console.log('checkpoint1');
-  const jobinstance = linting.usecaselint();
+  const jobinstance1 = linting.usecaselint();
+  const jobinstance2 = giting.usecaselint();
+  const jobinstance3 = building.usecaselint();
+  const jobinstance4 = helming.usecaselint();
   console.log('checkpoint2');   
 
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
       console.log("===============typeof jobinstance=================",typeof jobinstance);
-      jobinstance.run();
+      jobinstance1.run();
+      jobinstance2.run();
+      jobinstance3.run();
+      jobinstance4.run();
       // await GitTask.usecasegit().run();
       // await BuildTask.usecasebuild().run();
       // await HelmTask.usecasehelm().run();

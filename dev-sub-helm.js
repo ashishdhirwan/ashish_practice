@@ -2,8 +2,12 @@ const { events, Job, Group } = require('brigadier');
 //const { Job } = require('@brigadecore/brigadier');
 class HelmTask{
 
+  constructor(job) {
+    this.Job = job;
+  }
+
 usecasehelm(){
-  const helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
+  const helmtask = new this.Job("helmtask","dhirwanashish/asd-devops:v1");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
   "cd /mnt/brigade/share",

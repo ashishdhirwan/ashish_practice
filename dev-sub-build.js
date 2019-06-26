@@ -2,8 +2,12 @@ const { events, Job, Group } = require('brigadier');
 //const { Job } = require('@brigadecore/brigadier');
 class BuildTask{
 
+  constructor(job) {
+    this.Job = job;
+  }
+
 usecasebuild(){
-const dockerbuild = new Job("docker","dhirwanashish/asd-devops:v1");
+const dockerbuild = new this.Job("docker","dhirwanashish/asd-devops:v1");
 dockerbuild.privileged = true;
 dockerbuild.storage.enabled = true;
 dockerbuild.env = {

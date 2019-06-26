@@ -4,7 +4,7 @@
 // new LintTask(job)
 
 class LintTask{
-
+  
   constructor(job) {
     this.Job = job;
   }

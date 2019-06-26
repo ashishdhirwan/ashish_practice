@@ -2,11 +2,16 @@
 const { Job } = require('brigadier');
 class GitTask{
 
-usecasegit(){
+  constructor(job) {
+    this.Job = job;
+  }
+
+    usecasegit(){
+
   //  var jsonPayload = JSON.parse(e.payload);
     var dest = "/mnt/brigade/share/keys.txt";
         
-    const gittask = new Job("gittask", "dhirwanashish/asd-devops:v1");
+    const gittask = new this.Job("gittask", "dhirwanashish/asd-devops:v1");
     gittask.storage.enabled = true;
     gittask.tasks = [
         "cd /src",
