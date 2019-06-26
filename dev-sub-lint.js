@@ -18,7 +18,7 @@ class LintTask{
       "npm run eslint"
     ];
     //  return linttask;
-    console.log("In use case lint");
+    console.log("Inside useCaseLint");
     return linttask;
     }
 }

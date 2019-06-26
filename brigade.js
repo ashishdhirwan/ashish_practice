@@ -1,30 +1,33 @@
 const { Job , events } = require('brigadier');
-console.log("jobing",Job);
+const LintTask = require('./dev-sub-lint');
+
+// console.log("jobing",Job);
 //const { events } = require('@brigadecore/brigadier');
 // const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
-const LintTask = require('./dev-sub-lint');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 //try {
-console.log("events",events);
+// console.log("events",events);
 
 // let versioning = new GitTask();
 // let building = new BuildTask();
 // let helming = new HelmTask();
-console.log("printing");
+// console.log("printing");
 //}
 /* catch(err){
   console.log(err);
 } */
 events.on("push", async (e, project) => {
-  console.log("Received a push event");
   let jsonPayload = JSON.parse(e.payload); 
+  console.log("Received a push event");
   const linting = new LintTask(Job);
-  const jobinstance = linting.usecaselint();   
+  console.log('checkpoint1');
+  const jobinstance = linting.usecaselint();
+  console.log('checkpoint2');   
 
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
-      console.log("===============typeof useCaseLint()=================",typeof LintTask.usecaselint());
+      console.log("===============typeof jobinstance=================",typeof jobinstance);
       jobinstance.run();
       // await GitTask.usecasegit().run();
       // await BuildTask.usecasebuild().run();
