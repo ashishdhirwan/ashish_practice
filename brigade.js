@@ -35,9 +35,9 @@ events.on("push", async (e, project) => {
 //   Group.runEach([
 //      console.log("===============typeof jobinstance=================",typeof jobinstance);
       await jobinstance1.run();
-      await jobinstance2.run();
-      await jobinstance3.run();
-      await jobinstance4.run();
+      //await jobinstance2.run();
+      //await jobinstance3.run();
+      //await jobinstance4.run();
       // await GitTask.usecasegit().run();
       // await BuildTask.usecasebuild().run();
       // await HelmTask.usecasehelm().run();

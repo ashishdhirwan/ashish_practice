@@ -16,7 +16,8 @@ class LintTask{
     linttask.tasks = [
       "cd /src",
       "npm i",
-      "sleep 40",
+      "if [ $? -eq 0 ]; then 'npm run eslint'; else echo waiiting; fi",
+      //"sleep 40",
       "npm run eslint"
     ];
     //  return linttask;
