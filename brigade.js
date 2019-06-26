@@ -3,23 +3,19 @@ const { Job , events } = require('brigadier');
 const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 //try {
-
 console.log("events",events);
 const linting = new LintTask();
 let versioning = new GitTask();
 let building = new BuildTask();
 let helming = new HelmTask();
 console.log("printing");
-
 //}
-
 /* catch(err){
   console.log(err);
 } */
 events.on("push", async (e, project) => {
   console.log("Received a push event");
   let jsonPayload = JSON.parse(e.payload);    
-  // let HelmTask = new HelmTask();
 
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
