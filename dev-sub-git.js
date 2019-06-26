@@ -6,7 +6,7 @@ class GitTask{
     this.Job = job;
   }
 
-    usecasegit(){
+  usecasegit(){
 
   //  var jsonPayload = JSON.parse(e.payload);
     var dest = "/mnt/brigade/share/keys.txt";
