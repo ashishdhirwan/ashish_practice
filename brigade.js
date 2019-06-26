@@ -22,7 +22,7 @@ events.on("push", async (e, project) => {
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
-      console.log(typeof LintTask.usecaselint());
+      console.log("===============typeof useCaseLint()=================",typeof LintTask.usecaselint());
       linting.usecaselint().run();
       // await GitTask.usecasegit().run();
       // await BuildTask.usecasebuild().run();
