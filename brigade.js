@@ -1,4 +1,5 @@
 const { Job , events } = require('brigadier');
+console.log("jobing",Job);
 //const { events } = require('@brigadecore/brigadier');
 // const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 const LintTask = require('./dev-sub-lint');
