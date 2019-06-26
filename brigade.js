@@ -27,7 +27,7 @@ events.on("push", async (e, project) => {
   const jobinstance1 = linting.usecaselint();
   const jobinstance2 = giting.usecasegit();
   const jobinstance3 = building.usecasebuild();
-  const jobinstance4 = helming.usecasehelms();
+  const jobinstance4 = helming.usecasehelm();
   console.log('checkpoint2');   
 
   if(e.type === 'push') {
