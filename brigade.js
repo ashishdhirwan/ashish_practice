@@ -27,23 +27,23 @@ events.on("push", async (e, project) => {
   const jobinstance1 = linting.usecaselint();
   const jobinstance2 = giting.usecasegit();
   const jobinstance3 = building.usecasebuild();
-  const jobinstance4 = helming.usecasehelm();
+  const jobinstance4 = helming.usecasehelms();
   console.log('checkpoint2');   
 
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
-      Group.runEach([
-      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      jobinstance1.run();
-      jobinstance2.run();
-      jobinstance3.run();
-      jobinstance4.run();
+//   Group.runEach([
+//      console.log("===============typeof jobinstance=================",typeof jobinstance);
+      await jobinstance1.run();
+      await jobinstance2.run();
+      await jobinstance3.run();
+      await jobinstance4.run();
       // await GitTask.usecasegit().run();
       // await BuildTask.usecasebuild().run();
       // await HelmTask.usecasehelm().run();
-      ]);
-    };
-  };
+//      ]);
+    }
+  }
 });
 
 
