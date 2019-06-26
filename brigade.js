@@ -4,10 +4,10 @@ const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 //try {
 console.log("events",events);
-const linting = new LintTask();
-let versioning = new GitTask();
-let building = new BuildTask();
-let helming = new HelmTask();
+// const linting = new LintTask();
+// let versioning = new GitTask();
+// let building = new BuildTask();
+// let helming = new HelmTask();
 console.log("printing");
 //}
 /* catch(err){
@@ -20,10 +20,10 @@ events.on("push", async (e, project) => {
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
-      await linting.usecaselint().run();
-      await versioning.usecasegit().run();
-      await building.usecasebuild().run();
-      await helming.usecasehelm().run();
+      await LintTask.usecaselint().run();
+      await GitTask.usecasegit().run();
+      await BuildTask.usecasebuild().run();
+      await HelmTask.usecasehelm().run();
 //      ]);
     }
   }
