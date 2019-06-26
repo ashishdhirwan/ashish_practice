@@ -1,6 +1,7 @@
 const { Job , events } = require('brigadier');
 //const { events } = require('@brigadecore/brigadier');
-const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
+// const { HelmTask, LintTask, GitTask, BuildTask } = require('./index.js');
+const LintTask = require('./dev-sub-lint');
 //const { HelmTask, LintTask, GitTask, BuildTask } = require('devops_module');
 //try {
 console.log("events",events);
@@ -20,10 +21,10 @@ events.on("push", async (e, project) => {
   if(e.type === 'push') {
     if(jsonPayload.ref === "refs/heads/master") {
 //      Group.runEach([
-      await LintTask.usecaselint().run();
-      await GitTask.usecasegit().run();
-      await BuildTask.usecasebuild().run();
-      await HelmTask.usecasehelm().run();
+      LintTask.usecaselint().run();
+      // await GitTask.usecasegit().run();
+      // await BuildTask.usecasebuild().run();
+      // await HelmTask.usecasehelm().run();
 //      ]);
     }
   }
