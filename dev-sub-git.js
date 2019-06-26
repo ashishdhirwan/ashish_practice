@@ -1,5 +1,5 @@
 //const { Job } = require('@brigadecore/brigadier');
-const { Job } = require('brigadier');
+//const { Job } = require('brigadier');
 class GitTask{
 
   constructor(job) {
