@@ -3,11 +3,17 @@ FROM node:10.15-slim
 RUN mkdir -p /mydir/app   
 #defining working directory
 WORKDIR /mydir/app
+
+RUN pwd
 #copying package.json first to install all dependencies
-COPY package.json ./mydir/app
+COPY package.json /mydir/app
+
+RUN pwd
+RUN ls
 RUN npm install
 #copying the code inside folder which is inside container
 COPY . /mydir/app
+RUN ls
 # Build and optimize react app
 RUN npm build
 
