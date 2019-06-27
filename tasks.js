@@ -25,7 +25,7 @@ class DevTask{
         ];
     }
 
-    git_tag_store(){
+    git_tag_store(dest){
         return[
             "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
             "echo $latestTag",

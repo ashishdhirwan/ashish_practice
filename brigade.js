@@ -11,7 +11,10 @@ events.on("push", async (e, project) => {
   let linttask = new Job("gittask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
-    devtask.lint_task()
+    //devtask.lint_task(),
+    devtask.git_auth(),
+    devtask.git_versioning(),
+    devtask.git_tag_store(dest)
   ];
 
 /* 
