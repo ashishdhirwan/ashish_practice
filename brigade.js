@@ -13,8 +13,11 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     //devtask.lint_task(),
     devtask.git_auth(),
+    "echo authdone",
     devtask.git_versioning(),
-    devtask.git_tag_store(dest)
+    "echo versionindone",
+    devtask.git_tag_store(dest),
+    "echo storagedone"
   ];
 
 /* 
