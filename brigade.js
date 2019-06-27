@@ -1,15 +1,17 @@
 const { Job , events } = require('brigadier');
-const { DevTask } = require('./tasks.js');
-
+const DevTask = require('./tasks.js');
+const devtask = new DevTask();
+console.log("devtask",devtask.lint_task());
 
 events.on("push", async (e, project) => {
   let jsonPayload = JSON.parse(e.payload); 
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
+
   let linttask = new Job("gittask","node:slim");
   linttask.storage.enabled = true;
-  linttask.tasks[
-    DevTask.lint_task();
+  linttask.tasks = [
+    devtask.lint_task()
   ];
 
 /* 

@@ -33,6 +33,5 @@ class DevTask{
             "cat " + dest,
         ];
     }
-
-module.exports = DevTask;
 }
+module.exports = DevTask;
