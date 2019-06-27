@@ -17,9 +17,9 @@ class LintTask{
       "cd /src",
       "npm i",
       "echo %%%%%%%%%%%%%%%%",
-      "npm eslint",
+      "npm eslint:fix",
       "echo #############################",
-      'if $? != eq 0; then npm eslint:fix; else echo linting is done successfully; fi',
+      'if $? == eq 0; then npm eslint; else echo linting is unsuccessfully; fi',
       "echo $$$$$$$$$$$$$$$$$$$$",
       //"if [ $? -eq 0 ]; then 'npm run eslint'; else echo waiiting; fi",
       //"npm run eslint"
