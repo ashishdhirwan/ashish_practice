@@ -2,8 +2,10 @@ class DevTask{
 
     lint_task(){
         return[
-        "npm eslint:fix",
-        "`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
+            "echo linting",
+            "npm eslint",
+        //"npm eslint:fix",
+        //"`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
         ];
     }
 
