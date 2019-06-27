@@ -9,6 +9,7 @@ class DevTask{
 
     git_auth(){
         return[
+            "echo git auth started",
             "echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials",
             "git config credential.helper 'store --file .git-credentials'",
             "git remote add origin https://github.com/ashishdhirwan/ashish_practice.git"
