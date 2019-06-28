@@ -12,7 +12,7 @@ events.on("push", async (e, project) => {
   let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   //linttask.tasks = [
-  const linting = devtask.lint_task();
+  devtask.lint_task();
   //  devtask.git_auth(),
   //  "echo authdone",
   //  devtask.git_versioning(),
@@ -37,7 +37,7 @@ events.on("push", async (e, project) => {
     if(jsonPayload.ref === "refs/heads/master") {
 //   Group.runEach([
 //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      await linting.run();
+      await linttask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
       //await jobinstance4.run();
