@@ -11,15 +11,15 @@ events.on("push", async (e, project) => {
 
   let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
-  //linttask.tasks = [
-  devtask.lint_task();
+  linttask.tasks = [
+  devtask.lint_task()
   //  devtask.git_auth(),
   //  "echo authdone",
   //  devtask.git_versioning(),
   //  "echo versionindone",
   //  devtask.git_tag_store(dest),
   //  "echo storagedone"
-  //];
+  ];
 
 /* 
   const linting = new LintTask(Job);
