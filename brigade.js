@@ -11,11 +11,8 @@ events.on("push", async (e, project) => {
 
   let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
-
-  if(e.type === 'push') {
-    if(jsonPayload.ref === "refs/heads/master") {
   //linttask.tasks = [
-    devtask.lint_task().run();
+  const linting = devtask.lint_task();
   //  devtask.git_auth(),
   //  "echo authdone",
   //  devtask.git_versioning(),
@@ -23,8 +20,7 @@ events.on("push", async (e, project) => {
   //  devtask.git_tag_store(dest),
   //  "echo storagedone"
   //];
-    }
-  }
+
 /* 
   const linting = new LintTask(Job);
   const giting = new GitTask(Job);
@@ -35,13 +31,13 @@ events.on("push", async (e, project) => {
   const jobinstance2 = giting.usecasegit();
   const jobinstance3 = building.usecasebuild();
   const jobinstance4 = helming.usecasehelm(); */
-//  console.log('checkpoint2');   
+  console.log('checkpoint2');   
 
-//  if(e.type === 'push') {
-//    if(jsonPayload.ref === "refs/heads/master") {
+  if(e.type === 'push') {
+    if(jsonPayload.ref === "refs/heads/master") {
 //   Group.runEach([
 //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-//      await linttask.run();
+      await linting.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
       //await jobinstance4.run();
@@ -49,6 +45,6 @@ events.on("push", async (e, project) => {
       // await BuildTask.usecasebuild().run();
       // await HelmTask.usecasehelm().run();
 //      ]);
-//    }
-//  }
+    }
+  }
 });
