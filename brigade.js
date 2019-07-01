@@ -13,7 +13,7 @@ events.on("push", async (e, project) => {
   linttask.storage.enabled = true;
   linttask.tasks = [
   "cd src/",
-  "...devtask.lint_task()"
+  ...devtask.lint_task()
   //  devtask.git_auth(),
   //  "echo authdone",
   //  devtask.git_versioning(),
