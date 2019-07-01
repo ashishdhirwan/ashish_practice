@@ -25,9 +25,9 @@ events.on("push", async (e, project) => {
   gittask.storage.enabled = true;
   gittask.tasks = [
   "cd src/",
-  ...devtask.git_auth(),
-  ...devtask.git_versioniong(),
-  ...devtask.git_tag_store(dest)
+  ...devtask.git_auth()
+  //...devtask.git_versioniong(),
+  //...devtask.git_tag_store(dest)
   ]; 
 
 
