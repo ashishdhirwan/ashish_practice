@@ -12,7 +12,8 @@ events.on("push", async (e, project) => {
   let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
-  ...devtask.lint_task()
+  "cd src/",
+  "...devtask.lint_task()"
   //  devtask.git_auth(),
   //  "echo authdone",
   //  devtask.git_versioning(),
