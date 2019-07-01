@@ -24,7 +24,7 @@ events.on("push", async (e, project) => {
   let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
   gittask.tasks = [
-  "cd src/",
+  //"cd src/",
   ...devtask.git_auth()
   //...devtask.git_versioniong(),
   //...devtask.git_tag_store(dest)
