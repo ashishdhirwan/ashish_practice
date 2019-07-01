@@ -9,7 +9,7 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
 
-  let linttask = new Job("linttask","node:slim");
+/*   let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
   "cd src/",
@@ -21,14 +21,14 @@ events.on("push", async (e, project) => {
   //  devtask.git_tag_store(dest),
   //  "echo storagedone"
   ];
-
-/*   let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
+ */
+   let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
   gittask.tasks = [
   ...devtask.git_auth(),
   ...devtask.git_versioniong(),
   ...devtask.git_tag_store(dest)
-  ]; */
+  ];
 
 /* 
   const linting = new LintTask(Job);
@@ -46,8 +46,8 @@ events.on("push", async (e, project) => {
     if(jsonPayload.ref === "refs/heads/master") {
 //   Group.runEach([
 //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      await linttask.run();
-     // await gittask.run();
+      //await linttask.run();
+      await gittask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
       //await jobinstance4.run();
