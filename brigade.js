@@ -30,6 +30,7 @@ events.on("push", async (e, project) => {
   ...devtask.git_tag_store(dest)
   ];
 
+  
 /* 
   const linting = new LintTask(Job);
   const giting = new GitTask(Job);
