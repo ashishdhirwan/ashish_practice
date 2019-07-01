@@ -1,17 +1,17 @@
-class DevTask{
+class DevTask {
 
-    lint_task(){
-        return[
+    lint_task() {
+        return [
             "echo linting",
             "npm i",
-        //    "npm run eslint",
-        //"npm eslint:fix",
-        //"`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
+            //    "npm run eslint",
+            //"npm eslint:fix",
+            //"`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
         ];
     }
 
-    git_auth(){
-        return[
+    git_auth() {
+        return [
             "echo git auth started",
             "echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials",
             "git config credential.helper 'store --file .git-credentials'",
@@ -19,8 +19,8 @@ class DevTask{
         ];
     }
 
-    git_versioning(){
-        return[
+    git_versioning() {
+        return [
             "wget -q -O gitversion https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.1/gitversion_linux_amd64",
             "chmod u+x ./gitversion",
             "git fetch --tags -q",
@@ -29,8 +29,8 @@ class DevTask{
         ];
     }
 
-    git_tag_store(dest){
-        return[
+    git_tag_store(dest) {
+        return [
             "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
             "echo $latestTag",
             'echo $latestTag >' + dest,
