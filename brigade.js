@@ -8,27 +8,27 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
 
-  let linttask = new Job("linttask","node:slim");
+  /* let linttask = new Job("linttask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
   "cd src/",
-  "...devtask.lint_task()"
+  ...devtask.lint_task()
   //  devtask.git_auth(),
   //  "echo authdone",
   //  devtask.git_versioning(),
   //  "echo versionindone",
   //  devtask.git_tag_store(dest),
   //  "echo storagedone"
-  ];
+  ]; */
  
-/*    let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
+  let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
   gittask.tasks = [
-  //"cd src/",
+  "cd src/",
   ...devtask.git_auth(),
   ...devtask.git_versioniong(),
   ...devtask.git_tag_store(dest)
-  ]; */
+  ]; 
 
 
 /* 
