@@ -21,13 +21,14 @@ events.on("push", async (e, project) => {
   //  "echo storagedone"
   ];
 
-  let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
+/*   let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
   gittask.tasks = [
   ...devtask.git_auth(),
   ...devtask.git_versioniong(),
   ...devtask.git_tag_store(dest)
-  ];
+  ]; */
+
 /* 
   const linting = new LintTask(Job);
   const giting = new GitTask(Job);
@@ -45,7 +46,7 @@ events.on("push", async (e, project) => {
 //   Group.runEach([
 //      console.log("===============typeof jobinstance=================",typeof jobinstance);
       await linttask.run();
-      await gittask.run();
+     // await gittask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
       //await jobinstance4.run();
