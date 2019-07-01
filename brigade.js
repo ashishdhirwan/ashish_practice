@@ -12,9 +12,10 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
 
-  let linttask = new Job("linttask", "node:slim");
+  let linttask = new Job("linttask", "dhirwanashish/asd-devops:v1");
   linttask.storage.enabled = true;
   linttask.tasks = [
+    "ls -lart",
     "cd src/",
     ...devtask.lint_task()
     //  devtask.git_auth(),
@@ -30,7 +31,7 @@ events.on("push", async (e, project) => {
   gittask.tasks = [
     "ls -lart",
     "cd src/",
-    ...devtask.git_auth()
+    ...devtask.git_auth(),
     //...devtask.git_versioniong(),
     //...devtask.git_tag_store(dest)
   ];
