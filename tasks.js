@@ -4,7 +4,7 @@ class DevTask{
         return[
             "echo linting",
             "npm i",
-            "npm run eslint",
+        //    "npm run eslint",
         //"npm eslint:fix",
         //"`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
         ];
