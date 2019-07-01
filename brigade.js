@@ -24,9 +24,9 @@ events.on("push", async (e, project) => {
   let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
   gittask.tasks = [
-  ...gittask.git_auth(),
-  ...gittask.git_versioniong(),
-  ...gittask.git_tag_store(dest)
+  ...devtask.git_auth(),
+  ...devtask.git_versioniong(),
+  ...devtask.git_tag_store(dest)
   ];
 /* 
   const linting = new LintTask(Job);
