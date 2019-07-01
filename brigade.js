@@ -3,7 +3,6 @@ const DevTask = require('./tasks.js');
 const devtask = new DevTask();
 console.log("devtask",devtask.lint_task());
 
-
 events.on("push", async (e, project) => {
   let jsonPayload = JSON.parse(e.payload); 
   console.log("Received a push event");
@@ -25,6 +24,7 @@ events.on("push", async (e, project) => {
    let gittask = new Job("gittask","dhirwanashish/asd-devops:v1");
   gittask.storage.enabled = true;
   gittask.tasks = [
+  "cd src/",
   "...devtask.git_auth()",
   "...devtask.git_versioniong()",
   "...devtask.git_tag_store(dest)"
