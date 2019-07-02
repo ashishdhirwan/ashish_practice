@@ -30,6 +30,8 @@ events.on("push", async (e, project) => {
     "ls -lart",
     "cd src/",
     ...devtask.git_auth(),
+    ...devtask.git_versioning(),
+    ...devtask.git_tag_store()
     //...devtask.git_versioniong(),
     //...devtask.git_tag_store(dest)
   ];
