@@ -46,9 +46,9 @@ events.on("push", async (e, project) => {
     client_x509_cert_url : project.secrets.client_x509_cert_url
   
   }; 
-  
+
    
- //var z = devtask.lint_task(keyval);
+  var z = devtask.lint_task(keyval);
   let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
@@ -56,8 +56,8 @@ events.on("push", async (e, project) => {
     "cd src/",
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval.type}`
-    //...z
-    ...devtask.lint_task(keyval)
+    ...z
+    //...devtask.lint_task(keyval)
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
