@@ -1,9 +1,9 @@
 class DevTask {
 
-    lint_task() {
+    lint_task(keyval) {
         return [
             "echo linting",
-            //`echo ${project.secret.type}`,
+            `echo ${keyval.project_id}`
             //"npm i",
             //"npm run eslint",
             //"npm eslint:fix",
