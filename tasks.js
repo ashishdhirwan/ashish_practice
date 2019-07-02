@@ -59,6 +59,6 @@ class DevTask {
             "echo done-auth",
         ]; */
     }
-}
+
 
 module.exports = DevTask;
