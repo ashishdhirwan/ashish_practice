@@ -52,7 +52,8 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    `echo ${project}`,
+    `echo ${project.github.token}`,
+    `echo ${project.repository}`
     //`echo ${keyval}.type`
     //...devtask.lint_task(keyval)
     //  devtask.git_auth(),
