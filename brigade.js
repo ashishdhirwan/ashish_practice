@@ -10,7 +10,7 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
 
-  let linttask = new Job("nxvishal/platform_new");
+  let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "ls -lart",
@@ -24,7 +24,7 @@ events.on("push", async (e, project) => {
     //  "echo storagedone"
   ];
 
-/*   let gittask = new Job("gittask", "dhirwanashish/asd-devops:v2");
+  let gittask = new Job("gittask", "nxvishal/platform_new");
   gittask.storage.enabled = true;
   gittask.tasks = [
     "ls -lart",
@@ -33,7 +33,7 @@ events.on("push", async (e, project) => {
     //...devtask.git_versioniong(),
     //...devtask.git_tag_store(dest)
   ];
- */
+ 
 
   /* 
     const linting = new LintTask(Job);
