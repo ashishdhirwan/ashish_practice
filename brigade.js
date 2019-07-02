@@ -53,7 +53,7 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    `echo ${keyval.type}`,
+    //`echo ${keyval.type}`,
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval}.type`
     //...z
