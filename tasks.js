@@ -1,7 +1,7 @@
 class DevTask {
 
     lint_task(keyval) {
-        console.log("sdf",keyval)
+        console.log("sdf",keyval);
         return [
             "echo linting",
             `echo ${keyval.project_id}`

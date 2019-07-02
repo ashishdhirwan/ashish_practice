@@ -3,11 +3,11 @@ const DevTask = require('./tasks.js');
 console.log("events", events);
 
 const devtask = new DevTask();
-console.log("devtask", devtask.lint_task());
+//console.log("devtask", devtask.lint_task({test:"test"}));
 
 function abc(keyval){
   console.log("abc function", keyval.project_id)
-  devtask.lint_task(keyval)
+  devtask.lint_task(keyval);
 }
 
 events.on("push", async (e, project) => {
@@ -44,7 +44,7 @@ events.on("push", async (e, project) => {
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval.type}`
     //...z
-    //...devtask.lint_task()
+    ...devtask.lint_task({project_id:"1213213"})
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
@@ -96,7 +96,7 @@ events.on("push", async (e, project) => {
     if (jsonPayload.ref === "refs/heads/master") {
       //   Group.runEach([
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      await linttask.run(keyval);
+      await linttask.run();
      // await gittask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
