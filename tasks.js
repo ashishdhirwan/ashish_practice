@@ -3,7 +3,7 @@ class DevTask {
     lint_task(keyval) {
         return [
             "echo linting",
-            `echo ${keyval.type}`
+            //`echo ${keyval.type}`,
             //"npm i",
             //"npm run eslint",
             //"npm eslint:fix",
