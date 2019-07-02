@@ -53,7 +53,7 @@ events.on("push", async (e, project) => {
     if (jsonPayload.ref === "refs/heads/master") {
       //   Group.runEach([
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      await linttask.run();
+     // await linttask.run();
       await gittask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
