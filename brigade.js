@@ -12,7 +12,7 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
 
-  let linttask = new Job("linttask", "dhirwanashish/asd-devops:v1");
+  let linttask = new Job("linttask", "dhirwanashish/asd-devops:v2");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "ls -lart",
@@ -26,7 +26,7 @@ events.on("push", async (e, project) => {
     //  "echo storagedone"
   ];
 
-  let gittask = new Job("gittask", "dhirwanashish/asd-devops:v1");
+  let gittask = new Job("gittask", "dhirwanashish/asd-devops:v2");
   gittask.storage.enabled = true;
   gittask.tasks = [
     "ls -lart",
