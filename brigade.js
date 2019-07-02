@@ -42,6 +42,7 @@ events.on("push", async (e, project) => {
     //  "echo storagedone"
   ];
 
+  
   let gittask = new Job("gittask", "nxvishal/platform_new");
   gittask.storage.enabled = true;
   gittask.tasks = [
