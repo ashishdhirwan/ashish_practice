@@ -1,10 +1,10 @@
 class DevTask {
 
-    lint_task(keyval) {
-        console.log("sdf",keyval)
+    lint_task() {
+       // console.log("sdf",keyval)
         return [
             "echo linting",
-            `echo ${keyval.project_id}`
+          //  `echo ${keyval.project_id}`
             //"npm i",
             //"npm run eslint",
             //"npm eslint:fix",

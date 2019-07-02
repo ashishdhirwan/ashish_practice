@@ -6,24 +6,6 @@ const devtask = new DevTask();
 console.log("devtask", devtask.lint_task());
 
 
-/*   var keyval = {
-  project : project.secret.project,
-  repository : project.secret.repository,
-  cloneUrl : project.secret.cloneUrl,
-  type : project.secret.type,
-  project_id : project.secret.project_id,
-  private_key_id : project.secret.private_key_id,
-  private_key : project.secret.private_key,
-  client_email : project.secret.client_email,
-  client_id : project.secret.client_id,
-  auth_uri : project.secret.auth_uri,
-  token_uri : project.secret.token_uri,
-  auth_provider_x509_cert_url : project.secret.auth_provider_x509_cert_url,
-  client_x509_cert_url : project.secret.client_x509_cert_url
-
-};
-  */
-
 events.on("push", async (e, project) => {
   console.log("project logs",project);
   let jsonPayload = JSON.parse(e.payload);
@@ -57,7 +39,7 @@ events.on("push", async (e, project) => {
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval.type}`
     //...z
-    ...devtask.lint_task(keyval)
+    ...devtask.lint_task()
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
@@ -110,7 +92,7 @@ events.on("push", async (e, project) => {
       //   Group.runEach([
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
       await linttask.run();
-      await gittask.run();
+     // await gittask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
       //await jobinstance4.run();
