@@ -33,7 +33,7 @@ events.on("push", async (e, project) => {
   
   };
 
-  abc(keyval);
+  //abc(keyval);
    
   //var z = devtask.lint_task(keyval);
   let linttask = new Job("lintask","node:slim");
@@ -44,7 +44,7 @@ events.on("push", async (e, project) => {
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval.type}`
     //...z
-    ...devtask.lint_task({project_id:"1213213"})
+    ...devtask.lint_task(keyval)
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
