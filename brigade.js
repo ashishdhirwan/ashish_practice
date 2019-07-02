@@ -5,6 +5,9 @@ console.log("events", events);
 const devtask = new DevTask();
 console.log("devtask", devtask.lint_task());
 
+function abc(keyval){
+  console.log("abc function", keyval.project_id)
+}
 
 events.on("push", async (e, project) => {
   console.log("project logs",project);
@@ -27,8 +30,9 @@ events.on("push", async (e, project) => {
     auth_provider_x509_cert_url : project.secrets.auth_provider_x509_cert_url,
     client_x509_cert_url : project.secrets.client_x509_cert_url
   
-  }; 
-  console.log("keyval",keyval);
+  };
+
+  abc(keyval);
    
   //var z = devtask.lint_task(keyval);
   let linttask = new Job("lintask","node:slim");
