@@ -5,7 +5,7 @@ console.log("events", events);
 const devtask = new DevTask();
 console.log("devtask", devtask.lint_task());
 
-var keyval = {
+/* var keyval = {
   project : project.secret.project,
   repository : project.secret.repository,
   cloneUrl : project.secret.cloneUrl,
@@ -21,7 +21,7 @@ var keyval = {
   client_x509_cert_url : project.secret.client_x509_cert_url
 
 };
-
+ */
 
 events.on("push", async (e, project) => {
   let jsonPayload = JSON.parse(e.payload);
@@ -42,7 +42,7 @@ events.on("push", async (e, project) => {
     //  "echo storagedone"
   ];
 
-  
+
   let gittask = new Job("gittask", "nxvishal/platform_new");
   gittask.storage.enabled = true;
   gittask.tasks = [
