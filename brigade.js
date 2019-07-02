@@ -25,6 +25,7 @@ console.log("devtask", devtask.lint_task());
   */
 
 events.on("push", async (e, project) => {
+  console.log("project logs",project)
   let jsonPayload = JSON.parse(e.payload);
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
@@ -53,7 +54,7 @@ events.on("push", async (e, project) => {
     "ls -lart",
     "cd src/",
     `echo ${project.secrets.token}`,
-    `echo ${project.repository.token_uri}`
+    //`echo ${project.repository.token_uri}`
     //`echo ${keyval}.type`
     //...devtask.lint_task(keyval)
     //  devtask.git_auth(),
