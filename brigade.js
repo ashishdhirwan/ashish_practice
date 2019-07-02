@@ -33,7 +33,7 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    ...devtask.lint_task()
+    ...devtask.lint_task(keyval)
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
@@ -54,7 +54,7 @@ events.on("push", async (e, project) => {
     //...devtask.git_tag_store(dest)
   ];
 
-  let dockerbuild = new Job("docker","nxvishal/platform_new");
+/*   let dockerbuild = new Job("docker","nxvishal/platform_new");
   dockerbuild.privileged = true;
   dockerbuild.storage.enabled = true;
   dockerbuild.env = {
@@ -66,7 +66,7 @@ events.on("push", async (e, project) => {
     ...devtask.docker_start(),
     ...devtask.docker_gcloud_auth(keyval)
   ];
-
+ */
 
   /* 
     const linting = new LintTask(Job);

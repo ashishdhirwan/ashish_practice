@@ -1,8 +1,9 @@
 class DevTask {
 
-    lint_task() {
+    lint_task(keyval) {
         return [
             "echo linting",
+            `echo ${keyval}.project_id`
             //"npm i",
             //    "npm run eslint",
             //"npm eslint:fix",
@@ -42,7 +43,7 @@ class DevTask {
         ];
     }
 
-    docker_start(){
+/*     docker_start(){
         return[
             "echo docker starting",
             "dockerd-entrypoint.sh &",
@@ -50,12 +51,13 @@ class DevTask {
     }
     docker_gcloud_auth(keyval){
         return[
+
             "echo authenticating",
             "gcloud auth configure-docker",
-            `gcloud config set project` ${keyval.project_id},
+            `gcloud config set project ${keyval}.project_id`,
             `gcloud auth activate-service-account --key-file=${keyval} --project=${keyval.project_id}',
             "echo done-auth",
-        ];
+        ]; */
     }
 }
 
