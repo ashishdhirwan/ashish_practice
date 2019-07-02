@@ -46,6 +46,7 @@ events.on("push", async (e, project) => {
     client_x509_cert_url : project.secrets.client_x509_cert_url
   
   }; 
+  
    
  //var z = devtask.lint_task(keyval);
   let linttask = new Job("lintask","node:slim");
