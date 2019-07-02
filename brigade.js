@@ -1,5 +1,6 @@
 const { Job, events } = require('brigadier');
 const DevTask = require('./tasks.js');
+console.log("events", events);
 
 const devtask = new DevTask();
 console.log("devtask", devtask.lint_task());
@@ -9,7 +10,7 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
 
-  let linttask = new Job("node:alpine");
+  let linttask = new Job("nxvishal/platform_new");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "ls -lart",
