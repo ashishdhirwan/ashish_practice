@@ -5,7 +5,8 @@ console.log("events", events);
 const devtask = new DevTask();
 console.log("devtask", devtask.lint_task());
 
-/* var keyval = {
+
+/*   var keyval = {
   project : project.secret.project,
   repository : project.secret.repository,
   cloneUrl : project.secret.cloneUrl,
@@ -21,19 +22,37 @@ console.log("devtask", devtask.lint_task());
   client_x509_cert_url : project.secret.client_x509_cert_url
 
 };
- */
+  */
 
 events.on("push", async (e, project) => {
   let jsonPayload = JSON.parse(e.payload);
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
 
+  var keyval = {
+    project : project.secret.project,
+    repository : project.secret.repository,
+    cloneUrl : project.secret.cloneUrl,
+    type : project.secret.type,
+    project_id : project.secret.project_id,
+    private_key_id : project.secret.private_key_id,
+    private_key : project.secret.private_key,
+    client_email : project.secret.client_email,
+    client_id : project.secret.client_id,
+    auth_uri : project.secret.auth_uri,
+    token_uri : project.secret.token_uri,
+    auth_provider_x509_cert_url : project.secret.auth_provider_x509_cert_url,
+    client_x509_cert_url : project.secret.client_x509_cert_url
+  
+  };
+   
+
   let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    ...devtask.lint_task()
+    ...devtask.lint_task(keyval)
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
