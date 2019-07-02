@@ -29,7 +29,7 @@ events.on("push", async (e, project) => {
   let jsonPayload = JSON.parse(e.payload);
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
-/* 
+ 
   var keyval = {
     project : project.secrets.project,
     repository : project.secrets.repository,
@@ -45,7 +45,7 @@ events.on("push", async (e, project) => {
     auth_provider_x509_cert_url : project.secrets.auth_provider_x509_cert_url,
     client_x509_cert_url : project.secrets.client_x509_cert_url
   
-  }; */
+  }; 
    
 
   let linttask = new Job("lintask","node:slim");
@@ -53,7 +53,7 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    `echo ${project.secrets.token_uri}`,
+    `echo ${keyval.type}`,
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval}.type`
     //...devtask.lint_task(keyval)
