@@ -12,7 +12,6 @@ class DevTask {
 
     git_auth() {
         return [
-            "cd src/",
             "echo git auth started",
             "echo https://ashishdhirwan:dhirwan10@github.com > .git-credentials",
             "git config credential.helper 'store --file .git-credentials'",
