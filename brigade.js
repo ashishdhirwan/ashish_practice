@@ -55,9 +55,9 @@ events.on("push", async (e, project) => {
     "ls -lart",
     "cd src/",
     //`echo ${project.repository.token_uri}`
-    `echo ${keyval.type}`
+    //`echo ${keyval.type}`
     //...z
-    //...devtask.lint_task(keyval)
+    ...devtask.lint_task(keyval)
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
@@ -109,7 +109,7 @@ events.on("push", async (e, project) => {
     if (jsonPayload.ref === "refs/heads/master") {
       //   Group.runEach([
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      await linttask.run(keyval);
+      await linttask.run();
       await gittask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
