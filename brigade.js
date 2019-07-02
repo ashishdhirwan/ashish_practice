@@ -52,8 +52,8 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    //`echo ${project.github.token}`,
-    `echo ${project.repository}`
+    `echo ${project.secrets.token}`,
+    `echo ${project.repository.token_uri}`
     //`echo ${keyval}.type`
     //...devtask.lint_task(keyval)
     //  devtask.git_auth(),
@@ -108,7 +108,7 @@ events.on("push", async (e, project) => {
       //   Group.runEach([
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
       await linttask.run();
-      await gittask.run();
+      //await gittask.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
       //await jobinstance4.run();
