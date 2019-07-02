@@ -57,7 +57,7 @@ events.on("push", async (e, project) => {
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval}.type`
     //...z
-    ...devtask.lint_task(keyval)
+    ...devtask.lint_task(project)
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
