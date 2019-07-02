@@ -3,9 +3,9 @@ class DevTask {
     lint_task(keyval) {
         return [
             "echo linting",
-            `echo ${keyval.project_id}`
+            `echo ${keyval.type}`
             //"npm i",
-            //    "npm run eslint",
+            //"npm run eslint",
             //"npm eslint:fix",
             //"`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
         ];
