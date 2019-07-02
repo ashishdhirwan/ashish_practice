@@ -7,6 +7,7 @@ console.log("devtask", devtask.lint_task());
 
 function abc(keyval){
   console.log("abc function", keyval.project_id)
+  devtask.lint_task(keyval)
 }
 
 events.on("push", async (e, project) => {
@@ -43,7 +44,7 @@ events.on("push", async (e, project) => {
     //`echo ${project.repository.token_uri}`
     //`echo ${keyval.type}`
     //...z
-    ...devtask.lint_task()
+    //...devtask.lint_task()
     //  devtask.git_auth(),
     //  "echo authdone",
     //  devtask.git_versioning(),
