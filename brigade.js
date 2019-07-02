@@ -48,15 +48,15 @@ events.on("push", async (e, project) => {
   }; 
 
    
-  var z = devtask.lint_task(keyval);
+  //var z = devtask.lint_task(keyval);
   let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "ls -lart",
     "cd src/",
     //`echo ${project.repository.token_uri}`
-    //`echo ${keyval.type}`
-    ...z
+    `echo ${keyval.type}`
+    //...z
     //...devtask.lint_task(keyval)
     //  devtask.git_auth(),
     //  "echo authdone",
