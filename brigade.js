@@ -52,7 +52,7 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    `echo ${project.cloneURL}`,
+    `echo ${project.secrets.cloneURL}`,
     //`echo ${keyval}.type`
     //...devtask.lint_task(keyval)
     //  devtask.git_auth(),
