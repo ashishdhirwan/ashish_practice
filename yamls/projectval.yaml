@@ -34,4 +34,16 @@ sharedSecret: "mysecretkey"
 kubernetes:
   buildStorageClass: local-nfs
   cacheStorageClass: local-nfs
+secrets: {
+  "type": "service_account",
+  "project_id": "my-project-70505",
+  "private_key_id": "c03a97524e248615b02ab7cd9c95d4da090800e1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCywaIwiwLwPglD\nRhcaDAA+sux8oHU2bWhLhVShza+cc3n9EVInTi5mi6i/7cN63ZOKXjTm7GYeVxHg\nyFb8LCDy2zy3pppc5GRq+u3vDGSyOqG3chZWm4PmDAnzu3nyN58TTbP5DWpSeNo/\nC9qngtvwMBYhuiorOFHoN7/CKwUk9MDI1EsPhs4k023N5TA6D0eYZw8M/gMG13hi\nmrTVVjqeCglIwsCzX8V+fOt8BpZMVuvqAM6UG9U0G7bTASz0JxkEkAHZb0LfFD53\n5CiZib36EbEEEKSFvKWl/A+XuSL50sRYjvlnhXvV4b/XxaEMTjtiIDJeGRFRNI1t\n0GanK8CbAgMBAAECggEAHM6itiL45sGAmaRWfb6YXYJVJSJwsURBbgY/JNIybkqX\nyqY7cJUjWihAmimVepvxtndHHD3VmScb/PccOYhdCPY22zvQnY669hiZNpBvO9/C\nBv+uROfMAktHYU2BsfyvuJspmUXFsCPEvCtLYfpvOk5tiqLnP87UOFGfqAlpy1IW\nuuEJWMiXMVN9/RtZOuIW2q3FFrAv8YUT36XS7JHwF2HClAUdeEsVLNZoR2ZO5eiE\n5y7zqi4MXpgHWZtrNIXsmzN1pHpFCrYPgYexsI0SphTPBQvua5qTnVbjz9QZrRg+\n9+/fNlprD5xPllDhP+azqgmlipL6I6GtT4mAyETYFQKBgQDxPUhZQ33h10MKcDba\nmaYC9N5Ryo94PgNtchmskRlHdciNU9nYNV6fKTByC53xdhf3ILLuN1eo9Ri9e7Pk\njPBCs0hgHZj942YWeUwHvVJrfZRF06cxYQ++TM2LsoDJYAK9LyCrYRgAdaE7FM1v\nzFRDRDE0y+TNc32TwAukl/k8JQKBgQC9saG62gKY5g8gS1YGEZNEvctH62tW4kEl\nHLLzYyJOqe0DJ6lakz+pr6je3BOCZnIUrhAn0NE/okXQeIbqYa9A2EPdzKk1by0z\nGAEEaOrCMBoPiGzCWvugaj7u9z5yLKd8m33EAL2Ot85rwYpKj4rFc594/ZtMwldd\ntTbnXmINvwKBgA/kBokCvh8LS/o7DBH4PwxAzwg6PJsiEp25/2DzqeOgKZbNqDLq\nyRHY570LcNr/+XIo8EBq2tZhVsDcjiwG8KikIKdcK8DFourmEJEN8ojsG8FBwOiq\nyRuy+XMzTfJ15ZhKq28+lRMqrHU02Jd9sStBKbCdobO64NHDu8Ca1isVAoGBALs/\ngNolIbM0RXIna38KEkkk4GjZ5lcZeBzeO3ctQExOSHt4xx91gr5Je3Sh4VAzOCFZ\nwPDMnAEoeanTj7oFOy3TTQrAX7czS3bIFxj3R+Tv/omerV0c2o360qyouqeRlLLX\n+klkQbmDjuunXI9FKkLGY4DXNlmK7Rq/Krcw37GZAoGARjACr5Ri/8SG9nGze0Yy\n0uT306WVxU+Ou8UVrLRNT+yaU47z1UFCJG51NHxlv6IJYtnohxdqezwLCKJeU6Zv\nREbZPsODMRnXE/PoQyPsER1GZqM/qlYY6aDO9bXHjns5cJ+2q1FCTyf3pKBu1oEx\nUfLhALHgmmL7EBwTAE0RDfs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "744392697911-compute@developer.gserviceaccount.com",
+  "client_id": "108389452411521832792",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/744392697911-compute%40developer.gserviceaccount.com"
+}
 

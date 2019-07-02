@@ -41,5 +41,22 @@ class DevTask {
             "cat " + dest,
         ];
     }
+
+    docker_start(){
+        return[
+            "echo docker starting",
+            "dockerd-entrypoint.sh &",
+        ];
+    }
+    docker_gcloud_auth(keyval){
+        return[
+            "echo authenticating",
+            "gcloud auth configure-docker",
+            `gcloud config set project` ${keyval.project_id},
+            `gcloud auth activate-service-account --key-file=${keyval} --project=${keyval.project_id}',
+            "echo done-auth",
+        ];
+    }
 }
+
 module.exports = DevTask;

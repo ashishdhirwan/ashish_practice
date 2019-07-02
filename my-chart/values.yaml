@@ -6,7 +6,7 @@ replicaCount: 2
 
 image:
   repository: gcr.io/my-project-70505/dhirwanashish/dev
-  tag: latest
+  tag: 0.0.18
   pullPolicy: IfNotPresent
 
 
