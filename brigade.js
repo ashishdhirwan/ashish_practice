@@ -42,16 +42,8 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    //`echo ${project.repository.token_uri}`
-    //`echo ${keyval.type}`
-    //...z
     ...devtask.lint_task(keyval)
-    //  devtask.git_auth(),
-    //  "echo authdone",
-    //  devtask.git_versioning(),
-    //  "echo versionindone",
-    //  devtask.git_tag_store(dest),
-    //  "echo storagedone"
+
   ];
 
 
@@ -63,16 +55,14 @@ events.on("push", async (e, project) => {
     ...devtask.git_auth(),
     ...devtask.git_versioning(),
     ...devtask.git_tag_store(dest)
-    //...devtask.git_versioniong(),
-    //...devtask.git_tag_store(dest)
   ];
 
-   let dockerbuild = new Job("docker","nxvishal/platform_new");
+  let dockerbuild = new Job("docker","nxvishal/platform_new");
   dockerbuild.privileged = true;
   dockerbuild.storage.enabled = true;
   dockerbuild.env = {
     DOCKER_DRIVER: "overlay"
-  }
+  };
   dockerbuild.tasks = [
     "cd src/",
     "ls -lart",
@@ -80,17 +70,6 @@ events.on("push", async (e, project) => {
     ...devtask.docker_gcloud_auth(keyval)
   ];
  
-
-  /* 
-    const linting = new LintTask(Job);
-    const giting = new GitTask(Job);
-    const building = new BuildTask(Job);
-    const helming = new HelmTask(Job);
-    console.log('checkpoint1');
-    const jobinstance1 = linting.usecaselint();
-    const jobinstance2 = giting.usecasegit();
-    const jobinstance3 = building.usecasebuild();
-    const jobinstance4 = helming.usecasehelm(); */
   console.log('checkpoint2');
 
   if (e.type === 'push') {
@@ -99,14 +78,7 @@ events.on("push", async (e, project) => {
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
       await linttask.run();
       await gittask.run();
-      await dockerbuild.run();
-      //await jobinstance2.run();
-      //await jobinstance3.run();
-      //await jobinstance4.run();
-      // await GitTask.usecasegit().run();
-      // await BuildTask.usecasebuild().run();
-      // await HelmTask.usecasehelm().run();
-      //      ]);
+
     }
   }
 });

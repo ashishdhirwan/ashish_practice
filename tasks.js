@@ -4,6 +4,7 @@ class DevTask {
         console.log("sdf",keyval);
         return [
             "echo linting",
+            `echo ${keyval}`,
             `echo ${keyval.project_id}`
             //"npm i",
             //"npm run eslint",
@@ -57,7 +58,7 @@ class DevTask {
             "ls",
             "echo authing",
             `echo ${keyval.project_id}`,
-            //`gcloud config set project ${keyval.project_id}`,
+            `gcloud config set project ${keyval.project_id}`,
             "ls",
             "echo configing",
             `echo ${keyval.project_id}`,
