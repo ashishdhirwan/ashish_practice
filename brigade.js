@@ -30,6 +30,7 @@ events.on("push", async (e, project) => {
     client_x509_cert_url : project.secrets.client_x509_cert_url
   
   };
+  var keyvalobj = JSON.stringify(keyval);
 
   //abc(keyval);
    
@@ -39,7 +40,7 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    ...devtask.lint_task(keyval)
+    ...devtask.lint_task(keyvalobj)
 
   ];
 
@@ -64,7 +65,7 @@ events.on("push", async (e, project) => {
     "cd src/",
     "ls -lart",
     ...devtask.docker_start(),
-    ...devtask.docker_gcloud_auth(keyval)
+    ...devtask.docker_gcloud_auth(keyvalobj)
   ];
  
   console.log('checkpoint2');
