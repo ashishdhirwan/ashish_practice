@@ -57,7 +57,7 @@ class DevTask {
             "ls",
             "echo authing",
             `echo ${keyval.project_id}`,
-            `gcloud config set project ${keyval.project_id} -y`,
+            //`gcloud config set project ${keyval.project_id}`,
             "ls",
             "echo configing",
             `echo ${keyval.project_id}`,
