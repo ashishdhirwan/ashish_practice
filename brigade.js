@@ -4,18 +4,19 @@ console.log("events", events);
 
 const devtask = new DevTask();
 //console.log("devtask", devtask.lint_task({test:"test"}));
-
+/* 
 function abc(keyval){
   console.log("abc function", keyval.project_id)
   devtask.lint_task(keyval);
 }
-
+ */
 events.on("push", async (e, project) => {
   console.log("project logs",project);
   let jsonPayload = JSON.parse(e.payload);
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
   
+
   var keyval = {
     project : project.secrets.project,
     repository : project.secrets.repository,
@@ -66,7 +67,7 @@ events.on("push", async (e, project) => {
     //...devtask.git_tag_store(dest)
   ];
 
-/*   let dockerbuild = new Job("docker","nxvishal/platform_new");
+   let dockerbuild = new Job("docker","nxvishal/platform_new");
   dockerbuild.privileged = true;
   dockerbuild.storage.enabled = true;
   dockerbuild.env = {
@@ -78,7 +79,7 @@ events.on("push", async (e, project) => {
     ...devtask.docker_start(),
     ...devtask.docker_gcloud_auth(keyval)
   ];
- */
+ 
 
   /* 
     const linting = new LintTask(Job);
@@ -97,7 +98,8 @@ events.on("push", async (e, project) => {
       //   Group.runEach([
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
       await linttask.run();
-     // await gittask.run();
+      await gittask.run();
+      await dockerbuild.run();
       //await jobinstance2.run();
       //await jobinstance3.run();
       //await jobinstance4.run();
@@ -108,3 +110,24 @@ events.on("push", async (e, project) => {
     }
   }
 });
+
+
+/* const {
+
+  secrets:{project,repository,cloneUrl,type,project_id,private_key,private_key_id,client_email,client_id,auth_uri,token_uri,auth_provider_x509_cert_url,client_x509_cert_url}
+    } = projectVal;
+    const keyval = {
+      project,
+      repository ,
+      cloneUrl ,
+      type ,
+      project_id ,
+      private_key_id ,
+      private_key ,
+      client_email ,
+      client_id ,
+      auth_uri ,
+      token_uri ,
+      auth_provider_x509_cert_url ,
+      client_x509_cert_url   
+    };   */

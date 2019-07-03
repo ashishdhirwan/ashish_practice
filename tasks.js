@@ -40,26 +40,24 @@ class DevTask {
             "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
             "echo $latestTag",
             'echo $latestTag >' + dest,
-            "cat " + dest,
+            "cat " + dest
         ];
     }
 
-/*     docker_start(){
-        return[
+    docker_start() {
+        return [
             "echo docker starting",
-            "dockerd-entrypoint.sh &",
+            "dockerd-entrypoint.sh &"
         ];
     }
-    docker_gcloud_auth(keyval){
-        return[
-
+    docker_gcloud_auth(keyval) {
+        return [
             "echo authenticating",
             "gcloud auth configure-docker",
-            `gcloud config set project ${keyval}.project_id`,
-            `gcloud auth activate-service-account --key-file=${keyval} --project=${keyval.project_id}',
-            "echo done-auth",
-        ]; */
+            `gcloud config set project ${keyval.project_id}`,
+            `gcloud auth activate-service-account --key-file=${keyval} --project=${keyval.project_id}`,
+            "echo done-auth"
+        ]; 
     }
-
-
+}
 module.exports = DevTask;
