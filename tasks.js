@@ -56,9 +56,11 @@ class DevTask {
             "gcloud auth configure-docker",
             "ls",
             "echo authing",
+            `echo ${keyval.project_id}`,
             `gcloud config set project ${keyval.project_id}`,
             "ls",
             "echo configing",
+            `echo ${keyval.project_id}`,
             `gcloud auth activate-service-account --key-file=${keyval} --project=${keyval.project_id}`,
             "echo done-auth"
         ]; 
