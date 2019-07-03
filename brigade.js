@@ -18,9 +18,6 @@ events.on("push", async (e, project) => {
   
 
   var keyval = {
-    project : project.secrets.project,
-    repository : project.secrets.repository,
-    cloneUrl : project.secrets.cloneUrl,
     type : project.secrets.type,
     project_id : project.secrets.project_id,
     private_key_id : project.secrets.private_key_id,
@@ -78,6 +75,7 @@ events.on("push", async (e, project) => {
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
       await linttask.run();
       await gittask.run();
+      await dockerbuild.run();
 
     }
   }
