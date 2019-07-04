@@ -30,7 +30,7 @@ events.on("push", async (e, project) => {
   };
   var keyvalobj = JSON.stringify(keyval);
 
-  let values = {
+  var values = {
 /*     mage: {
       tag: "${APP_VER}",
       repository: `${project.secrets.app_container_reg}/${project.secrets.app_name}`
@@ -45,7 +45,7 @@ events.on("push", async (e, project) => {
     },
 
 
-  let linttask = new Job("lintask","node:slim");
+  var linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "ls -lart",
@@ -55,7 +55,7 @@ events.on("push", async (e, project) => {
   ];
 
 
-  let gittask = new Job("gittask", "nxvishal/platform_new");
+  var gittask = new Job("gittask", "nxvishal/platform_new");
   gittask.storage.enabled = true;
   gittask.tasks = [
     "ls -lart",
@@ -65,7 +65,7 @@ events.on("push", async (e, project) => {
     ...devtask.git_tag_store(dest)
   ];
 
-  let dockerbuild = new Job("docker","nxvishal/platform_new");
+  var dockerbuild = new Job("docker","nxvishal/platform_new");
   dockerbuild.privileged = true;
   dockerbuild.storage.enabled = true;
   dockerbuild.env = {
