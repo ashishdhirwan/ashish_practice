@@ -88,7 +88,7 @@ class DevTask {
             "ls -lart",
             "cd my-chart/",
             "helm ls",
-            "helm upgrade --set=image.tag=$var nordic-emu my-chart/",    //another way of tagging and upgrading directly
+            //"helm upgrade --set=image.tag=$var nordic-emu my-chart/",    //another way of tagging and upgrading directly
             //'sed -i "s/tag.*/tag: "$var"/" values.yaml',
             //'sed -i "s/version.*/version: "$var"/" Chart.yaml',
             //`sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
