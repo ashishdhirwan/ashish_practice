@@ -68,8 +68,8 @@ class DevTask {
     }
     docker_build(keyval) {
         return [
-            "cd /mnt/brigade/share",
-            "var=$(cat keys.txt)",
+            //"cd /mnt/brigade/share",
+            "var=$(cat /mnt/brigade/sharekeys.txt)",
             "echo $var",
             "docker build -t dhirwanashish/dev:latest .",
             "echo done-build",
