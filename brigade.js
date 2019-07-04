@@ -79,6 +79,7 @@ events.on("push", async (e, project) => {
     ...devtask.helm_update()
   ];
  */
+
   if (e.type === 'push') {
     if (jsonPayload.ref === "refs/heads/master") {
       //   Group.runEach([
