@@ -16,6 +16,7 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
   
+
   var keyval = {
     type : project.secrets.type,
     project_id : project.secrets.project_id,
@@ -30,22 +31,22 @@ events.on("push", async (e, project) => {
   };
   var keyvalobj = JSON.stringify(keyval);
 
-  var values = {
+  //let values = {
 /*     mage: {
       tag: "${APP_VER}",
       repository: `${project.secrets.app_container_reg}/${project.secrets.app_name}`
     }, */
-    name: "ashish.dhirwan",
-    project: "environment",
+    //name: "ashish.dhirwan",
+    //project: "environment",
     //config_test_server: `http://${teamEnv}-dan-configuration-service`,
     //config_secret: project.secrets[teamEnv + "_config_secret"],
     //mongo_url: `mongodb://${project.secrets[teamEnv + "_mongo_user"]}:${project.secrets[teamEnv + "_mongo_pass"]}@${teamEnv}-mdb-mongodb:27017/${project.secrets[teamEnv + "_mongo_db"]}`,
     //node_env: "dev",
 
-    },
+    //},
 
 
-  var linttask = new Job("lintask","node:slim");
+  let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
     "ls -lart",
@@ -55,7 +56,7 @@ events.on("push", async (e, project) => {
   ];
 
 
-  var gittask = new Job("gittask", "nxvishal/platform_new");
+  let gittask = new Job("gittask", "nxvishal/platform_new");
   gittask.storage.enabled = true;
   gittask.tasks = [
     "ls -lart",
@@ -65,7 +66,7 @@ events.on("push", async (e, project) => {
     ...devtask.git_tag_store(dest)
   ];
 
-  var dockerbuild = new Job("docker","nxvishal/platform_new");
+  let dockerbuild = new Job("docker","nxvishal/platform_new");
   dockerbuild.privileged = true;
   dockerbuild.storage.enabled = true;
   dockerbuild.env = {
