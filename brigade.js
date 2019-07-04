@@ -16,7 +16,6 @@ events.on("push", async (e, project) => {
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
   
-
   var keyval = {
     type : project.secrets.type,
     project_id : project.secrets.project_id,
