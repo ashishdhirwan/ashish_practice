@@ -39,7 +39,7 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    ...devtask.lint_task(keyvalobj)
+    ...devtask.lint_task(keyval)
 
   ];
 
