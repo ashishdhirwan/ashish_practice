@@ -66,5 +66,18 @@ class DevTask {
             "echo done-auth"
         ]; 
     }
+    docker_build(keyval) {
+        return [
+            "cd /mnt/brigade/share",
+            "var=$(cat keys.txt)",
+            "echo $var",
+            "docker build -t dhirwanashish/dev:latest .",
+            "echo done-build",
+            //"docker tag dhirwanashish/dev:latest gcr.io/my-project-70505/dhirwanashish/dev:$var",
+            `docker tag dhirwanashish/dev:latest gcr.io/${keyval.project_id}/dhirwanashish/dev:$var`,
+            "echo done-tagging",
+            `docker push gcr.io/${keyval.project_id}/dhirwanashish/dev:$var`
+        ];
+    }
 }
 module.exports = DevTask;
