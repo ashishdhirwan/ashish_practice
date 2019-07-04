@@ -30,10 +30,22 @@ events.on("push", async (e, project) => {
     client_x509_cert_url : project.secrets.client_x509_cert_url 
   };
   var keyvalobj = JSON.stringify(keyval);
-  //console.log(keyval);
-  //abc(keyval);
-   
-  //var z = devtask.lint_task(keyval);
+
+  let values = {
+/*     mage: {
+      tag: "${APP_VER}",
+      repository: `${project.secrets.app_container_reg}/${project.secrets.app_name}`
+    }, */
+    name: "ashish.dhirwan",
+    project: "environment",
+    //config_test_server: `http://${teamEnv}-dan-configuration-service`,
+    //config_secret: project.secrets[teamEnv + "_config_secret"],
+    //mongo_url: `mongodb://${project.secrets[teamEnv + "_mongo_user"]}:${project.secrets[teamEnv + "_mongo_pass"]}@${teamEnv}-mdb-mongodb:27017/${project.secrets[teamEnv + "_mongo_db"]}`,
+    //node_env: "dev",
+
+    },
+
+
   let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [

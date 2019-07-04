@@ -28,6 +28,10 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: 3000
+        env:
+        - name: name
+        env:
+        -name: project
 #        volumeMounts:
 #        - mountPath: "/usr/data"
 #          name: conf-vol-helm
