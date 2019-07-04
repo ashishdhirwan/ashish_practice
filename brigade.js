@@ -86,6 +86,7 @@ events.on("push", async (e, project) => {
       await linttask.run();
       await gittask.run();
       await dockerbuild.run();
+      await helmtask.run();
 
     }
   }
