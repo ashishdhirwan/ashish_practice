@@ -65,7 +65,8 @@ events.on("push", async (e, project) => {
     "cd src/",
     "ls -lart",
     ...devtask.docker_start(),
-    ...devtask.docker_gcloud_auth()
+    ...devtask.docker_gcloud_auth(),
+    ...devtask.docker_build(keyval)
   ];
  
   console.log('checkpoint2');
