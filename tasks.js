@@ -80,7 +80,7 @@ class DevTask {
         ];
     }
 
-/*      helm_update() {
+      helm_update() {
         return [
             //"cd /mnt/brigade/share",
             "var=$(cat /mnt/brigade/share/keys.txt)",
@@ -88,7 +88,7 @@ class DevTask {
             "ls -lart",
             "cd my-chart/",
             "helm ls",
-            //"helm upgrade --set=image.tag=$var nordic-emu my-chart/",    //another way of tagging and upgrading directly
+            "helm upgrade --set=image.tag=$var ashish-practice my-chart/",    //another way of tagging and upgrading directly
             //'sed -i "s/tag.*/
             //tag: "$var"/" values.yaml',
             //'sed -i "s/version.*/version: "$var"/" Chart.yaml',
@@ -98,9 +98,9 @@ class DevTask {
             //"helm ls",
             //"helm install my-chart/",
             //"helm upgrade nordic-emu my-chart/",
-            //"echo done-work"
-        //];
-    //}  */
+            "echo done-work"
+        ];
+    }  
 }
 
 module.exports = DevTask;

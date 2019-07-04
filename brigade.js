@@ -73,6 +73,19 @@ events.on("push", async (e, project) => {
     DOCKER_DRIVER: "overlay",
     key: keyvalobj
   };
+  let values = {
+/*     mage: {
+      tag: "${APP_VER}",
+      repository: `${project.secrets.app_container_reg}/${project.secrets.app_name}`
+    }, */
+    name: "ashish.dhirwan",
+    projectname: "environment",
+    //config_test_server: `http://${teamEnv}-dan-configuration-service`,
+    //config_secret: project.secrets[teamEnv + "_config_secret"],
+    //mongo_url: `mongodb://${project.secrets[teamEnv + "_mongo_user"]}:${project.secrets[teamEnv + "_mongo_pass"]}@${teamEnv}-mdb-mongodb:27017/${project.secrets[teamEnv + "_mongo_db"]}`,
+    //node_env: "dev",
+
+  };
   dockerbuild.tasks = [
     "cd src/",
     "ls -lart",
@@ -83,14 +96,14 @@ events.on("push", async (e, project) => {
  
   console.log('checkpoint2');
 
-/*   let helmtask = new Job("helmtask","nxvishal/platform_new");
+   let helmtask = new Job("helmtask","nxvishal/platform_new");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
     "ls -lart",
     "cd src/",
     ...devtask.helm_update()
   ];
- */
+
 
   if (e.type === 'push') {
     if (jsonPayload.ref === "refs/heads/master") {
@@ -99,7 +112,7 @@ events.on("push", async (e, project) => {
       await linttask.run();
       await gittask.run();
       await dockerbuild.run();
-      //await helmtask.run();
+      await helmtask.run();
 
     }
   }

@@ -30,8 +30,10 @@ spec:
         - containerPort: 3000
         env:
         - name: name
+          value: "{{ .project.values.name }}"
         env:
-        -name: project
+        - name: project
+          value: "{{ .project.values.projectname }}"
 #        volumeMounts:
 #        - mountPath: "/usr/data"
 #          name: conf-vol-helm
