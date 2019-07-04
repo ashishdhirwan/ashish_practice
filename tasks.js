@@ -80,7 +80,7 @@ class DevTask {
         ];
     }
 
-    helm_update() {
+/*     helm_update() {
         return [
             //"cd /mnt/brigade/share",
             "var=$(cat /mnt/brigade/share/keys.txt)",
@@ -99,6 +99,6 @@ class DevTask {
             //"helm upgrade nordic-emu my-chart/",
             "echo done-work"
         ];
-    }
+    } */
 }
 module.exports = DevTask;

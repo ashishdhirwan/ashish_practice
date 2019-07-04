@@ -71,14 +71,14 @@ events.on("push", async (e, project) => {
  
   console.log('checkpoint2');
 
-  let helmtask = new Job("helmtask","nxvishal/platform_new");
+/*   let helmtask = new Job("helmtask","nxvishal/platform_new");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
     "ls -lart",
     "cd src/",
     ...devtask.helm_update()
   ];
-
+ */
   if (e.type === 'push') {
     if (jsonPayload.ref === "refs/heads/master") {
       //   Group.runEach([
@@ -86,7 +86,7 @@ events.on("push", async (e, project) => {
       await linttask.run();
       await gittask.run();
       await dockerbuild.run();
-      await helmtask.run();
+      //await helmtask.run();
 
     }
   }
