@@ -61,8 +61,8 @@ class DevTask {
             //`gcloud config set project ${keyval.project_id}`,
             "ls",
             "echo configing",
-            `echo ${keyval.project_id}`,
-            `gcloud auth activate-service-account --key-file=${keyvalobj} --project=${keyval.project_id}`,
+            "echo $key > key.json",
+            `gcloud auth activate-service-account --key-file=key.json`,
             "echo done-auth"
         ]; 
     }

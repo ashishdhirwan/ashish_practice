@@ -27,11 +27,10 @@ events.on("push", async (e, project) => {
     auth_uri : project.secrets.auth_uri,
     token_uri : project.secrets.token_uri,
     auth_provider_x509_cert_url : project.secrets.auth_provider_x509_cert_url,
-    client_x509_cert_url : project.secrets.client_x509_cert_url
-  
+    client_x509_cert_url : project.secrets.client_x509_cert_url 
   };
   var keyvalobj = JSON.stringify(keyval);
-
+  //console.log(keyval);
   //abc(keyval);
    
   //var z = devtask.lint_task(keyval);
@@ -59,13 +58,14 @@ events.on("push", async (e, project) => {
   dockerbuild.privileged = true;
   dockerbuild.storage.enabled = true;
   dockerbuild.env = {
-    DOCKER_DRIVER: "overlay"
+    DOCKER_DRIVER: "overlay",
+    key: keyvalobj
   };
   dockerbuild.tasks = [
     "cd src/",
     "ls -lart",
     ...devtask.docker_start(),
-    ...devtask.docker_gcloud_auth(keyvalobj)
+    ...devtask.docker_gcloud_auth()
   ];
  
   console.log('checkpoint2');
