@@ -86,6 +86,7 @@ events.on("push", async (e, project) => {
     //node_env: "dev",
 
   };
+  
   dockerbuild.tasks = [
     "cd src/",
     "ls -lart",
@@ -96,7 +97,7 @@ events.on("push", async (e, project) => {
  
   console.log('checkpoint2');
 
-   let helmtask = new Job("helmtask","nxvishal/platform_new");
+   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
     "ls -lart",
