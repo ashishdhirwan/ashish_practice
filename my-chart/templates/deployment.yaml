@@ -30,7 +30,7 @@ spec:
         - containerPort: {{ .Values.port }}
         env:
         - name: projectName
-          value: "{{ .Values.name }}"
+          value: {{ .Values.projectName }}
 
  #       - name: Name
  #         value: "{{ .project.values.Name }}"
