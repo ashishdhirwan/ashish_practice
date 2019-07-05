@@ -24,7 +24,6 @@ events.on("push", async (e, project) => {
     client_x509_cert_url : project.secrets.client_x509_cert_url 
   };
   var keyvalobj = JSON.stringify(keyval);
-
   
   const values = {
     image: {
