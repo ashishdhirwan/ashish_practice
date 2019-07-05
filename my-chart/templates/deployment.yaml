@@ -25,12 +25,12 @@ spec:
     spec:
       containers:
       - name: deploy-helm
-        image: "{{ .values.image.repository }}:{{ .values.image.tag }}"
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
-        - containerPort: "{{ .values.port }}"
+        - containerPort: "{{ .Values.port }}"
         env:
         - name: projectName
-          value: "{{ .values.name }}"
+          value: "{{ .Values.name }}"
 
  #       - name: Name
  #         value: "{{ .project.values.Name }}"
