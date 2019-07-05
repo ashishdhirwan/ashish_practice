@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: deploy-helm
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: {{ .Values.repository }}:{{ .Values.tag }}
         ports:
         - containerPort: {{ .Values.port }}
         env:
