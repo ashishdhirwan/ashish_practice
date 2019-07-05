@@ -88,6 +88,7 @@ class DevTask {
             "echo $var",
             "ls -lart",
             //"cd my-chart/",
+            "helm init --upgrade",
             "helm ls",
             new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values),
             //const helmCommand = new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
