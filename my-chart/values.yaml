@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: gcr.io/my-project-70505/dhirwanashish/test
+ # repository: gcr.io/my-project-70505/dhirwanashish/test
   tag: v2
   pullPolicy: IfNotPresent
 port: 3005

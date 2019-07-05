@@ -39,7 +39,6 @@ events.on("push", async (e, project) => {
       //const helmCommand = new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
       //console.log(helmCommand);
     }
-
   } */
 
   let linttask = new Job("lintask","node:slim");
