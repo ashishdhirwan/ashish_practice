@@ -26,14 +26,12 @@ events.on("push", async (e, project) => {
   var keyvalobj = JSON.stringify(keyval);
   
   const values = {
-    image: {
-      repository: "gcr.io/my-project-70505/dhirwanashish/dev"
-    },
+  
+    repository: "gcr.io/my-project-70505/dhirwanashish/dev",
     name: "ashish.dhirwan",
     projectName: "environment"
   };
 
-  
 /*   function helming() {
     return{
       HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
