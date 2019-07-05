@@ -25,15 +25,15 @@ spec:
     spec:
       containers:
       - name: deploy-helm
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: {{ .values.image.repository }}:{{ .values.image.tag }}
         ports:
-        - containerPort: 3000
+        - containerPort: "{{ .values.port }}"
         env:
-        - name: name
-          value: "{{ .project.values.name }}"
-        env:
-        - name: project
-          value: "{{ .project.values.projectname }}"
+        - name: projectName
+          value: "{{ .values.name }}"
+          
+ #       - name: Name
+ #         value: "{{ .project.values.Name }}"
 #        volumeMounts:
 #        - mountPath: "/usr/data"
 #          name: conf-vol-helm

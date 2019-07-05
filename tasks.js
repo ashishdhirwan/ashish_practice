@@ -1,3 +1,4 @@
+const HelmCommandFactory = require('./Helmupgrade.js');
 class DevTask {
 
     lint_task(keyval) {
@@ -86,18 +87,19 @@ class DevTask {
             "var=$(cat /mnt/brigade/share/keys.txt)",
             "echo $var",
             "ls -lart",
-            "cd my-chart/",
+            //"cd my-chart/",
             "helm ls",
-            "helm upgrade --set=image.tag=$var ashish-practice my-chart/",    //another way of tagging and upgrading directly
-            //'sed -i "s/tag.*/
-            //tag: "$var"/" values.yaml',
+            new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
+            //const helmCommand = new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
+            //console.log(helmCommand);
+            //"helm upgrade ashish-practice my-chart/",
+            //"helm upgrade --set=image.tag=$var ashish-practice my-chart/",    //another way of tagging and upgrading directly
             //'sed -i "s/version.*/version: "$var"/" Chart.yaml',
             //`sed -i 's/tag.*/tag: "$latestTag"/' values.yaml`,	
            // "cat values.yaml",
             //"cd ..",
-            //"helm ls",
+            "helm ls",
             //"helm install my-chart/",
-            //"helm upgrade nordic-emu my-chart/",
             "echo done-work"
         ];
     }  

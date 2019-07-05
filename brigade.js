@@ -1,15 +1,9 @@
 const { Job, events } = require('brigadier');
 const DevTask = require('./tasks.js');
+const HelmCommandFactory = require('./Helmupgrade.js');
 console.log("events", events);
-
 const devtask = new DevTask();
-//console.log("devtask", devtask.lint_task({test:"test"}));
-/* 
-function abc(keyval){
-  console.log("abc function", keyval.project_id)
-  devtask.lint_task(keyval);
-}
- */
+
 events.on("push", async (e, project) => {
   console.log("project logs",project);
   let jsonPayload = JSON.parse(e.payload);
@@ -31,20 +25,22 @@ events.on("push", async (e, project) => {
   };
   var keyvalobj = JSON.stringify(keyval);
 
-  //let values = {
-/*     mage: {
-      tag: "${APP_VER}",
-      repository: `${project.secrets.app_container_reg}/${project.secrets.app_name}`
-    }, */
-    //name: "ashish.dhirwan",
-    //project: "environment",
-    //config_test_server: `http://${teamEnv}-dan-configuration-service`,
-    //config_secret: project.secrets[teamEnv + "_config_secret"],
-    //mongo_url: `mongodb://${project.secrets[teamEnv + "_mongo_user"]}:${project.secrets[teamEnv + "_mongo_pass"]}@${teamEnv}-mdb-mongodb:27017/${project.secrets[teamEnv + "_mongo_db"]}`,
-    //node_env: "dev",
+  const values = {
+    image: {
+      repository: gcr.io/my-project-70505/dhirwanashish/dev
+    },
+    name: "ashish.dhirwan",
+    projectName: "environment"
+  };
 
-    //},
+/*   function helming() {
+    return{
+      HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
+      //const helmCommand = new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
+      //console.log(helmCommand);
+    }
 
+  } */
 
   let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
@@ -54,7 +50,6 @@ events.on("push", async (e, project) => {
     ...devtask.lint_task(keyval)
 
   ];
-
 
   let gittask = new Job("gittask", "nxvishal/platform_new");
   gittask.storage.enabled = true;
@@ -73,31 +68,19 @@ events.on("push", async (e, project) => {
     DOCKER_DRIVER: "overlay",
     key: keyvalobj
   };
-  let values = {
-/*     mage: {
-      tag: "${APP_VER}",
-      repository: `${project.secrets.app_container_reg}/${project.secrets.app_name}`
-    }, */
-    name: "ashish.dhirwan",
-    projectname: "environment",
-    //config_test_server: `http://${teamEnv}-dan-configuration-service`,
-    //config_secret: project.secrets[teamEnv + "_config_secret"],
-    //mongo_url: `mongodb://${project.secrets[teamEnv + "_mongo_user"]}:${project.secrets[teamEnv + "_mongo_pass"]}@${teamEnv}-mdb-mongodb:27017/${project.secrets[teamEnv + "_mongo_db"]}`,
-    //node_env: "dev",
 
-  };
   
   dockerbuild.tasks = [
     "cd src/",
     "ls -lart",
     ...devtask.docker_start(),
-    ...devtask.docker_gcloud_auth(),
-    ...devtask.docker_build(keyval)
+    ...devtask.docker_gcloud_auth()
+    //...devtask.docker_build(keyval)
   ];
  
   console.log('checkpoint2');
 
-   let helmtask = new Job("helmtask","dhirwanashish/asd-devops:v1");
+  let helmtask = new Job("helmtask","nxvishal/platform_new");
   helmtask.storage.enabled = true;
   helmtask.tasks = [
     "ls -lart",
