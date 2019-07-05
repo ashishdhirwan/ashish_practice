@@ -81,7 +81,7 @@ class DevTask {
         ];
     }
 
-      helm_update() {
+      helm_update(values) {
         return [
             //"cd /mnt/brigade/share",
             "var=$(cat /mnt/brigade/share/keys.txt)",

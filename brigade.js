@@ -60,6 +60,8 @@ events.on("push", async (e, project) => {
     ...devtask.git_versioning(),
     ...devtask.git_tag_store(dest)
   ];
+ 
+  console.log('checkpoint1');
 
   let dockerbuild = new Job("docker","nxvishal/platform_new");
   dockerbuild.privileged = true;
@@ -85,7 +87,7 @@ events.on("push", async (e, project) => {
   helmtask.tasks = [
     "ls -lart",
     "cd src/",
-    ...devtask.helm_update()
+    ...devtask.helm_update(values)
   ];
 
 
