@@ -25,3 +25,16 @@ pizzaToppings:
 #  claimName: mypvc
 
 #claimName: mypvc
+
+ #       - name: Name
+ #         value: "{{ .project.values.Name }}"
+#        volumeMounts:
+#        - mountPath: "/usr/data"
+#          name: conf-vol-helm
+#    volumes:
+#    - name: conf-vol-hel
+#      configMap:
+#      - name: myconfile 
+#        key: persistentVolumeClaim
+#      #  persistentVolumeClaim:
+#      # claimName: mypvc

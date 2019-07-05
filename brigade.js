@@ -26,7 +26,6 @@ events.on("push", async (e, project) => {
   var keyvalobj = JSON.stringify(keyval);
   
   const values = {
-  
     repository: "gcr.io/my-project-70505/dhirwanashish/dev",
     name: "ashish.dhirwan",
     projectName: "environment"
@@ -40,6 +39,7 @@ events.on("push", async (e, project) => {
     }
   } */
 
+  
   let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
