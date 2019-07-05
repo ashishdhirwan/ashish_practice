@@ -27,7 +27,7 @@ events.on("push", async (e, project) => {
 
   const values = {
     image: {
-      repository: gcr.io/my-project-70505/dhirwanashish/dev
+      repository: "gcr.io/my-project-70505/dhirwanashish/dev"
     },
     name: "ashish.dhirwan",
     projectName: "environment"
