@@ -89,7 +89,7 @@ class DevTask {
             "ls -lart",
             //"cd my-chart/",
             "helm ls",
-            new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
+            new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values),
             //const helmCommand = new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
             //console.log(helmCommand);
             //"helm upgrade ashish-practice my-chart/",
