@@ -39,7 +39,6 @@ events.on("push", async (e, project) => {
     }
   } */
 
-  
   let linttask = new Job("lintask","node:slim");
   linttask.storage.enabled = true;
   linttask.tasks = [
