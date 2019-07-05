@@ -90,7 +90,7 @@ class DevTask {
             //"cd my-chart/",
             "helm init",
             "helm ls",
-            "helm lint"
+            "helm lint",
             new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values),
             //const helmCommand = new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
             //console.log(helmCommand);
