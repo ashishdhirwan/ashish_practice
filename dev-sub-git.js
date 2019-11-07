@@ -24,6 +24,7 @@ class GitTask{
         "./gitversion  bump auto && ./gitversion show > pipeline_app_version.txt",
         "git branch",
         "git push --tags origin",
+	//"cat pipeline_app_version.txt > version" this can also be used
         "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
         "echo $latestTag",
         'echo $latestTag >' + dest,
