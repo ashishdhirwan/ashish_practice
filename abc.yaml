@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: my-task-deployment
+  #namespace: mynamespace       #defining namespace where deployment will be created
+spec:
+  replicas: 2                  #Number of pods you want to create
+  selector:
+    matchLabels:               #Labels are the mechanism you use to organize Kubernetes objects
+      app: first-task
+  template:                    #template stores pods specification
+    metadata:
+      labels:
+        app: first-task
+    spec:
+      containers:              #container specification
+      - name: ngnix
+        image: mascbxmncsc
+        ports:
+        - containerPort: 80    #port to accept and sent traffic through container
