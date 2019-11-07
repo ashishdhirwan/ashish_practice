@@ -68,7 +68,6 @@ events.on("push", async (e, project) => {
     DOCKER_DRIVER: "overlay",
     key: keyvalobj
   };
-
   
   dockerbuild.tasks = [
     "cd src/",
