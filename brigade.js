@@ -48,7 +48,7 @@ events.on("push", async (e, project) => {
 
   ];
 
-  let gittask = new Job("gittask", "nxvishal/platform_new");
+  let gittask = new Job("gittask", "alpine/git");
   gittask.storage.enabled = true;
   gittask.tasks = [
     "ls -lart",
