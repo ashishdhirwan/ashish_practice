@@ -8,21 +8,21 @@ events.on("push", async (e, project) => {
   console.log("project logs",project);
   let jsonPayload = JSON.parse(e.payload);
   console.log("Received a push event");
-  var dest = "/mnt/brigade/share/keys.txt";
+//  var dest = "/mnt/brigade/share/keys.txt";
 
-  var keyval = {
-    type : project.secrets.type,
-    project_id : project.secrets.project_id,
-    private_key_id : project.secrets.private_key_id,
-    private_key : project.secrets.private_key,
-    client_email : project.secrets.client_email,
-    client_id : project.secrets.client_id,
-    auth_uri : project.secrets.auth_uri,
-    token_uri : project.secrets.token_uri,
-    auth_provider_x509_cert_url : project.secrets.auth_provider_x509_cert_url,
-    client_x509_cert_url : project.secrets.client_x509_cert_url 
-  };
-  var keyvalobj = JSON.stringify(keyval);
+  // var keyval = {
+  //   type : project.secrets.type,
+  //   project_id : project.secrets.project_id,
+  //   private_key_id : project.secrets.private_key_id,
+  //   private_key : project.secrets.private_key,
+  //   client_email : project.secrets.client_email,
+  //   client_id : project.secrets.client_id,
+  //   auth_uri : project.secrets.auth_uri,
+  //   token_uri : project.secrets.token_uri,
+  //   auth_provider_x509_cert_url : project.secrets.auth_provider_x509_cert_url,
+  //   client_x509_cert_url : project.secrets.client_x509_cert_url 
+  // };
+  // var keyvalobj = JSON.stringify(keyval);
   
   const values = {
    // repository: "gcr.io/my-project-70505/dhirwanashish/dev",
@@ -44,7 +44,7 @@ events.on("push", async (e, project) => {
   linttask.tasks = [
     "ls -lart",
     "cd src/",
-    ...devtask.lint_task(keyval)
+   // ...devtask.lint_task(keyval)
 
   ];
 
@@ -55,7 +55,7 @@ events.on("push", async (e, project) => {
     "cd src/",
     ...devtask.git_auth(),
     ...devtask.git_versioning(),
-    ...devtask.git_tag_store(dest)
+   // ...devtask.git_tag_store(dest)
   ];
  
   console.log('checkpoint1');
@@ -91,10 +91,10 @@ events.on("push", async (e, project) => {
     if (jsonPayload.ref === "refs/heads/master") {
       //   Group.runEach([
       //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      //await linttask.run();
-      await gittask.run();
-      await dockerbuild.run();
-      await helmtask.run();
+      // await linttask.run();
+         await gittask.run();
+      // await dockerbuild.run();
+      // await helmtask.run();
 
     }
   }

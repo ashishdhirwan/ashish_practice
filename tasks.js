@@ -1,18 +1,18 @@
 const HelmCommandFactory = require('./Helmupgrade.js');
 class DevTask {
 
-    lint_task(keyval) {
-        console.log("sdf",keyval);
-        return [
-            "echo linting",
-            `echo ${keyval.project_id}`,
-            //`echo ${keyval.project_id}`
-            //"npm i",
-            //"npm run eslint",
-            //"npm eslint:fix",
-            //"`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
-        ];
-    }
+    // lint_task(keyval) {
+    //     console.log("sdf",keyval);
+    //     return [
+    //         "echo linting",
+    //         `echo ${keyval.project_id}`,
+    //         //`echo ${keyval.project_id}`
+    //         //"npm i",
+    //         //"npm run eslint",
+    //         //"npm eslint:fix",
+    //         //"`if $? == eq 0; then npm eslint; else echo linting is unsuccessfull; fi`"
+    //     ];
+    // }
 
     git_auth() {
         return [
@@ -36,15 +36,15 @@ class DevTask {
         ];
     }
 
-    git_tag_store(dest) {
-        return [
-            "echo tag store started",
-            "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
-            "echo $latestTag",
-            'echo $latestTag >' + dest,
-            "cat " + dest
-        ];
-    }
+    // git_tag_store(dest) {
+    //     return [
+    //         "echo tag store started",
+    //         "latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)",
+    //         "echo $latestTag",
+    //         'echo $latestTag >' + dest,
+    //         "cat " + dest
+    //     ];
+    // }
 
     docker_start() {
         return [
@@ -67,19 +67,19 @@ class DevTask {
             "echo done-auth"
         ]; 
     }
-    docker_build(keyval) {
-        return [
-            //"cd /mnt/brigade/share",
-            "var=$(cat /mnt/brigade/share/keys.txt)",
-            "echo $var",
-            "docker build -t dhirwanashish/dev:latest .",
-            "echo done-build",
-            //"docker tag dhirwanashish/dev:latest gcr.io/my-project-70505/dhirwanashish/dev:$var",
-            `docker tag dhirwanashish/dev:latest gcr.io/${keyval.project_id}/dhirwanashish/dev:$var`,
-            "echo done-tagging",
-            `docker push gcr.io/${keyval.project_id}/dhirwanashish/dev:$var`
-        ];
-    }
+    // docker_build(keyval) {
+    //     return [
+    //         //"cd /mnt/brigade/share",
+    //         "var=$(cat /mnt/brigade/share/keys.txt)",
+    //         "echo $var",
+    //         "docker build -t dhirwanashish/dev:latest .",
+    //         "echo done-build",
+    //         //"docker tag dhirwanashish/dev:latest gcr.io/my-project-70505/dhirwanashish/dev:$var",
+    //         `docker tag dhirwanashish/dev:latest gcr.io/${keyval.project_id}/dhirwanashish/dev:$var`,
+    //         "echo done-tagging",
+    //         `docker push gcr.io/${keyval.project_id}/dhirwanashish/dev:$var`
+    //     ];
+    // }
 
       helm_update(values) {
         return [
