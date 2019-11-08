@@ -9,7 +9,6 @@ events.on("push", async (e, project) => {
   let jsonPayload = JSON.parse(e.payload);
   console.log("Received a push event");
   var dest = "/mnt/brigade/share/keys.txt";
-  
 
   var keyval = {
     type : project.secrets.type,
