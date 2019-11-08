@@ -65,7 +65,7 @@ events.on("push", async (e, project) => {
   dockerbuild.storage.enabled = true;
   dockerbuild.env = {
     DOCKER_DRIVER: "overlay",
-    key: keyvalobj
+    //key: keyvalobj
   };
   
   dockerbuild.tasks = [
