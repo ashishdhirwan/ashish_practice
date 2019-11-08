@@ -1,123 +1,53 @@
-const { Job, events } = require('brigadier');
-const DevTask = require('./tasks.js');
-const HelmCommandFactory = require('./Helmupgrade.js');
-console.log("events", events);
-const devtask = new DevTask();
+//const { events, Job, Group } = require('brigadier')
+/*
 
-events.on("push", async (e, project) => {
-  console.log("project logs",project);
-  let jsonPayload = JSON.parse(e.payload);
-  console.log("Received a push event");
-  var dest = "/mnt/brigade/share/keys.txt";
+events.on("push", () => {
+  var hello = new Job("hello", "alpine:3.4")
+  hello.tasks = [
+    "echo Hello",
+    "echo World"
+  ]
+  hello.run()
+})
+*/
+
+
+const { events, Job, Group } = require('brigadier')
+
+events.on("push", async () => {
+
+  let j = new Job("hello-world","dhirwanashish/asd-prac:v1");
+  j.privileged = true;
   
-
-  var keyval = {
-    type : project.secrets.type,
-    project_id : project.secrets.project_id,
-    private_key_id : project.secrets.private_key_id,
-    private_key : project.secrets.private_key,
-    client_email : project.secrets.client_email,
-    client_id : project.secrets.client_id,
-    auth_uri : project.secrets.auth_uri,
-    token_uri : project.secrets.token_uri,
-    auth_provider_x509_cert_url : project.secrets.auth_provider_x509_cert_url,
-    client_x509_cert_url : project.secrets.client_x509_cert_url 
-  };
-  var keyvalobj = JSON.stringify(keyval);
-  
-  const values = {
-   // repository: "gcr.io/my-project-70505/dhirwanashish/dev",
-    //name: "ashish.dhirwan",
-    projectName: "environment"
-  };
-  
-/*   function helming() {
-    return{
-      HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
-      //const helmCommand = new HelmCommandFactory().createUpgradeInstallCommand('default','ashish-practice','my-chart/',values);
-      //console.log(helmCommand);
-    }
-  } */
-
-  
-  let linttask = new Job("lintask","node:slim");
-  linttask.storage.enabled = true;
-  linttask.tasks = [
-    "ls -lart",
-    "cd src/",
-    ...devtask.lint_task(keyval)
-
-  ];
-
-  let gittask = new Job("gittask", "nxvishal/platform_new");
-  gittask.storage.enabled = true;
-  gittask.tasks = [
-    "ls -lart",
-    "cd src/",
-    ...devtask.git_auth(),
-    ...devtask.git_versioning(),
-    ...devtask.git_tag_store(dest)
-  ];
- 
-  console.log('checkpoint1');
-
-  let dockerbuild = new Job("docker","nxvishal/platform_new");
-  dockerbuild.privileged = true;
-  dockerbuild.storage.enabled = true;
-  dockerbuild.env = {
-    DOCKER_DRIVER: "overlay",
-    key: keyvalobj
-  };
-  
-  dockerbuild.tasks = [
-    "cd src/",
-    "ls -lart",
-    ...devtask.docker_start(),
-    ...devtask.docker_gcloud_auth()
-    //...devtask.docker_build(keyval)
-  ];
- 
-  console.log('checkpoint2');
-
-  let helmtask = new Job("helmtask","nxvishal/platform_new");
-  helmtask.storage.enabled = true;
-  helmtask.tasks = [
-    "ls -lart",
-    "cd src/",
-    ...devtask.helm_update(values)
-  ];
-
-
-  if (e.type === 'push') {
-    if (jsonPayload.ref === "refs/heads/master") {
-      //   Group.runEach([
-      //      console.log("===============typeof jobinstance=================",typeof jobinstance);
-      //await linttask.run();
-      await gittask.run();
-      await dockerbuild.run();
-      await helmtask.run();
-
-    }
+  j.env = {
+    DOCKER_DRIVER: "overlay"
   }
+  j.tasks = [
+    "sleep 10",
+    "echo entered",
+   // "cd /src",
+    "gcloud info",
+    "echo now initializing",
+    //"gcloud init --console-only -y",
+    "echo $(pwd)",
+    "ls -lart",
+    //"cd mydir/app/",
+    "gcloud config set project My-Project 70505",
+    "gcloud auth activate-service-account --key-file=/mydir/vol/my-project-70505-c03a97524e24.json --project=My-Project 70505",
+   // "gcloud auth application-default login",
+    "cd /src",
+    "gcloud auth configure-docker",
+    "echo done-auth",
+    "echo Hello World!",
+    "dockerd-entrypoint.sh &",
+    "sleep 30",
+    "docker version",
+    //"cd /src",
+    "docker login -u dhirwanashish -p dhirwan10",
+    "docker build -t dhirwanashish/ashish_practice_try:latest .",
+    "docker tag dhirwanashish/ashish_practice_try:latest gcr.io/My-Project 70505/dhirwanashish/ashish_practice_try:v1",
+    "docker push gcr.io/My-Project 70505/dhirwanashish/ashish_practice_try:v1"
+  ]
+   j.run();
 });
 
-
-/* const {
-
-  secrets:{project,repository,cloneUrl,type,project_id,private_key,private_key_id,client_email,client_id,auth_uri,token_uri,auth_provider_x509_cert_url,client_x509_cert_url}
-    } = projectVal;
-    const keyval = {
-      project,
-      repository ,
-      cloneUrl ,
-      type ,
-      project_id ,
-      private_key_id ,
-      private_key ,
-      client_email ,
-      client_id ,
-      auth_uri ,
-      token_uri ,
-      auth_provider_x509_cert_url ,
-      client_x509_cert_url   
-    };   */
